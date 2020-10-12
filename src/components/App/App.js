@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Breakdown from '../Breakdown/Breakdown';
+import Edit from '../Edit/Edit';
 
 import './App.css';
 
@@ -68,6 +69,13 @@ class App extends Component {
               exact
               path="/breakdown"
               component={Breakdown}
+            />
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path="/edit"
+              component={Edit}
             />
 
             {/* When a value is supplied for the authRedirect prop the user will
