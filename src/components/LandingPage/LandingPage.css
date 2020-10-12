@@ -13,6 +13,17 @@ Grid
   align-items: flex-start;
 }
 
+/* .formPanel {
+  box-sizing: border-box;
+  width: 400px;
+  max-width: 100%;
+  padding: 25px;
+  margin: 0 auto 20px;
+  background-color: #efefef;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+} */
+
 .grid-col {
   flex: 0 0 auto;
   padding: 0 0.5rem 0.5rem;
