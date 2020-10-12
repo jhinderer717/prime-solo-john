@@ -8,7 +8,36 @@ import React from 'react';
 const AboutPage = () => (
   <div className="container">
     <div>
-      <p>This about page is for anyone to read!</p>
+      <p>
+        HandicApp is a cutting edge golf handicap tracker. With this application a golfer 
+        is able to visualize what aspects of their golf game they should focus on to improve 
+        their scores.
+      </p>
+      <p>
+        On a par four, a golfer is expected to hit the fairway on the drive, hit the green 
+        with the next shot, and two putt for par. Missing the fairway, extra strokes to the 
+        green, or more than two putts typically contribute to a score worse than par. On a 
+        par five a golfer is expected to be on the green in three shots. A par three expects
+        a player to green it with the first shot and two putt for par.
+      </p>
+      <p>
+        HandicApp requires seven inputs per round logged:
+        <ul>
+          <li>Date</li>
+          <li>Number of holes played</li>
+          <li>Strokes over (or under) par</li>
+          <li>Total putts</li>
+          <li>Total extra approach shots</li>
+          <li>Fairways hit</li>
+          <li>Fairways to hit</li>
+        </ul>
+        It is easiest to keep track of these stats for every hole. On your scorecard for the 
+        first hole, put a dot in the top left corner if you hit the fairway. For every extra 
+        approach shot needed to get onto the green, put dots in the top right corner going down. 
+        Starting in the bottom left corner going right, mark dots for how many putts you had. 
+        At the end of the round, total the putts, extra approach shots, fairways hit, and 
+        fairways to hit (all holes excluding par threes).
+      </p>
     </div>
   </div>
 );
