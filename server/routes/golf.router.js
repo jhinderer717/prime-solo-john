@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
   pool.query(queryString, [req.user.id])
     .then((result) => {
       console.log('result:', result.rows);
-      res.send(result.rows[0]); // rows[0] to get rid of array brackets
+      res.send(result.rows); // rows[0] to get rid of array brackets
     }).catch((error) => {
       console.log(error);
       res.sendStatus(500);

@@ -40,7 +40,7 @@ class AddRound extends Component {
     console.log('checkFields hit');
 
     const checkDate = this.state.date.split("-");
-    console.log('checkDate:', checkDate);
+    //console.log('checkDate:', checkDate);
     if(checkDate[1] > 12 || checkDate[1] < 1){
       alert('Invalid Month. Enter valid date YYYY-MM-DD');
       return;
@@ -69,6 +69,7 @@ class AddRound extends Component {
       alert('Enter possible fairways.');
       return;
     }
+    this.submit();
   }
 
   submit = () => {
