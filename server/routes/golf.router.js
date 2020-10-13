@@ -17,6 +17,19 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/all', (req, res) => {
+  console.log('golf.get all hit');
+  const queryString = `SELECT * FROM "round" WHERE "user_id" = $1 ORDER BY "date" ASC`;
+  pool.query(queryString, [req.user.id])
+    .then((result) => {
+      console.log('result:', result.rows);
+      res.send(result.rows); // rows[0] to get rid of array brackets
+    }).catch((error) => {
+      console.log(error);
+      res.sendStatus(500);
+    });
+});
+
 
 router.post('/', (req, res) => {
   console.log('golf.post hit');
