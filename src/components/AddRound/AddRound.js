@@ -5,11 +5,8 @@ import {withRouter} from 'react-router-dom';
 
 const today = Date();
 const todayString = today.split(" ");
-console.log('todayString:', todayString);
-
 const today1 = new Date();
 const thisMonth = (today1.getMonth() + 1);
-console.log('getMonth', thisMonth);
 let todayState = todayString[3].concat('-', thisMonth, '-', todayString[2]);
 console.log('todayState:', todayState);
 
@@ -33,15 +30,6 @@ class AddRound extends Component {
   }
 
   componentDidMount = () => {
-    // const today = Date();
-    // const todayString = today.split(" ");
-    // console.log('todayString:', todayString);
-
-    // const today1 = new Date();
-    // const thisMonth = (today1.getMonth() + 1);
-    // console.log('getMonth', thisMonth);
-    // let todayState = todayString[3].concat('-', thisMonth, '-', todayString[2]);
-    // console.log('todayState:', todayState);
     this.setState({
       ...this.state,
       date: todayState,
@@ -57,7 +45,7 @@ class AddRound extends Component {
       alert('Invalid Month. Enter valid date YYYY-MM-DD');
       return;
     }
-    if(checkDate[2] > 31 || checkDate[1] < 1){
+    if(checkDate[2] > 31 || checkDate[2] < 1){
       alert('Invalid Day of Month. Enter valid date YYYY-MM-DD');
       return;
     }

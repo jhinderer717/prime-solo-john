@@ -4,11 +4,11 @@ import axios from 'axios';
 
 function* addRound(action) {
    console.log('addRoundSaga hit with:', action.payload);
-   // yield axios({
-   //    method: 'POST',
-   //    url: '/api/golf',
-   //    data: action.payload
-   // });
+   yield axios({
+      method: 'POST',
+      url: '/api/golf',
+      data: action.payload
+   });
 }
 
 function* addRoundSaga() {

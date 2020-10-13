@@ -5,7 +5,16 @@ const router = express.Router();
 
 
 router.get('/', (req, res) => {
-  // GET route code here
+  console.log('golf.get hit');
+  const queryString = `SELECT * FROM "round" WHERE "user_id" = $1 ORDER BY "date"`;
+  pool.query(queryString, [req.user.id])
+    .then((result) => {
+      console.log('result:', result.rows);
+      res.send(result.rows[0]); // rows[0] to get rid of array brackets
+    }).catch((error) => {
+      console.log(error);
+      res.sendStatus(500);
+    });
 });
 
 

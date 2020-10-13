@@ -22,15 +22,17 @@ const AboutPage = () => (
       </p>
       <p>
         HandicApp requires seven inputs per round logged:
-        <ul>
-          <li>Date</li>
-          <li>Number of holes played</li>
-          <li>Strokes over (or under) par</li>
-          <li>Total putts</li>
-          <li>Total extra approach shots</li>
-          <li>Fairways hit</li>
-          <li>Fairways to hit</li>
-        </ul>
+      </p>
+      <ul>
+        <li>Date</li>
+        <li>Number of holes played</li>
+        <li>Strokes over (or under) par</li>
+        <li>Total putts</li>
+        <li>Total extra approach shots</li>
+        <li>Fairways hit</li>
+        <li>Fairways to hit</li>
+      </ul>
+      <p>
         It is easiest to keep track of these stats for every hole. On your scorecard for the 
         first hole, put a dot in the top left corner if you hit the fairway. For every extra 
         approach shot needed to get onto the green, put dots in the top right corner going down. 
