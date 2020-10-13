@@ -6,6 +6,7 @@ CREATE TABLE "user" (
 
 CREATE TABLE "round" (
     "id" SERIAL PRIMARY KEY,
+    "user_id" INT REFERENCES "user",
     "date" date,
     "number_holes" INT NOT NULL,
     "score_to_par" INT NOT NULL,
@@ -15,8 +16,3 @@ CREATE TABLE "round" (
     "possible_fairways" INT NOT NULL
 );
 
-
-CREATE TABLE "user_round" (
-	"user_id" INT REFERENCES "user",
-	"round_id" INT REFERENCES "round"
-);

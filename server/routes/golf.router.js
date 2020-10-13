@@ -1,10 +1,9 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+// prime-solo-project has a template.router.js router template
 
-/**
- * GET route template
- */
+
 router.get('/', (req, res) => {
   // GET route code here
 });
