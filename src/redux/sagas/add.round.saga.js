@@ -8,11 +8,12 @@ function* addRound(action) {
    // } catch (error) {
    //    console.log('Error with user login:', error);
    // }
-   yield axios({
+   let response = yield axios({
       method: 'POST',
       url: '/api/golf',
       data: action.payload
    });
+   console.log('response:', response);
 }
 
 function* addRoundSaga() {
