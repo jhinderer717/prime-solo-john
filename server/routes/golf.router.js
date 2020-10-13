@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   console.log('golf.get hit');
-  const queryString = `SELECT * FROM "round" WHERE "user_id" = $1 ORDER BY "date"`;
+  const queryString = `SELECT * FROM "round" WHERE "user_id" = $1 ORDER BY "date" ASC LIMIT 5`;
   pool.query(queryString, [req.user.id])
     .then((result) => {
       console.log('result:', result.rows);
