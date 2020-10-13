@@ -1,13 +1,23 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import {withRouter} from 'react-router-dom';
 
+const today = Date();
+const todayString = today.split(" ");
+console.log('todayString:', todayString);
+
+const today1 = new Date();
+const thisMonth = (today1.getMonth() + 1);
+console.log('getMonth', thisMonth);
+let todayState = todayString[3].concat('-', thisMonth, '-', todayString[2]);
+console.log('todayState:', todayState);
 
 class AddRound extends Component {
 
   state = {
-    date: '',
-    number_holes: '',
+    date: todayState,
+    number_holes: 18,
     score_to_par: '',
     putts: '',
     approach_shots: '',
@@ -22,6 +32,57 @@ class AddRound extends Component {
     });
   }
 
+  componentDidMount = () => {
+    // const today = Date();
+    // const todayString = today.split(" ");
+    // console.log('todayString:', todayString);
+
+    // const today1 = new Date();
+    // const thisMonth = (today1.getMonth() + 1);
+    // console.log('getMonth', thisMonth);
+    // let todayState = todayString[3].concat('-', thisMonth, '-', todayString[2]);
+    // console.log('todayState:', todayState);
+    this.setState({
+      ...this.state,
+      date: todayState,
+    });
+  }
+
+  checkFields = () => {
+    console.log('checkFields hit');
+
+    const checkDate = this.state.date.split("-");
+    console.log('checkDate:', checkDate);
+    if(checkDate[1] > 12 || checkDate[1] < 1){
+      alert('Invalid Month. Enter valid date YYYY-MM-DD');
+      return;
+    }
+    if(checkDate[2] > 31 || checkDate[1] < 1){
+      alert('Invalid Day of Month. Enter valid date YYYY-MM-DD');
+      return;
+    }
+    if(this.state.score_to_par === '') {
+      alert('Enter score to par.');
+      return;
+    }
+    if(this.state.putts === '') {
+      alert('Enter putts.');
+      return;
+    }
+    if(this.state.approach_shots === '') {
+      alert('Enter approach shots.');
+      return;
+    }
+    if(this.state.fairways_hit === '') {
+      alert('Enter fairways hit.');
+      return;
+    }
+    if(this.state.possible_fairways === ''){
+      alert('Enter possible fairways.');
+      return;
+    }
+  }
+
   submit = () => {
     //event.preventDefault(); needed? idk
     console.log('submit triggered!!');
@@ -29,9 +90,13 @@ class AddRound extends Component {
       type: 'ADD_ROUND',
       payload: this.state,
     });
+    this.clearFields();
+  }
+
+  clearFields = () => {
     this.setState({
-      date: '',
-      number_holes: '',
+      date: todayState,
+      number_holes: 18,
       score_to_par: '',
       putts: '',
       approach_shots: '',
@@ -40,15 +105,20 @@ class AddRound extends Component {
     })
   }
 
+  sendToDashboard = () => {
+    this.props.history.push('/');
+  }
+
   render() {
     console.log('state:', this.state);
     return (
       <div>
         <p>Add Round</p>
-        {/* <form onSubmit={() => this.submit(this.props)}> */}
-        <form onSubmit={this.submit}>
-          <input placeholder="Date YYYY-MM-DD" 
+        <form>
+          <label>Date Played:</label>
+          <input placeholder="YYYY-MM-DD" 
             onChange={(event) => this.handleChangeFor(event, 'date')} value={this.state.date} />
+          <label>Holes Played:</label>
           <input placeholder="Number of Holes Played" type='number' 
             onChange={(event) => this.handleChangeFor(event, 'number_holes')} value={this.state.number_holes} />
           <input placeholder="Score Over or Under Par" type='number' 
@@ -61,12 +131,13 @@ class AddRound extends Component {
             onChange={(event) => this.handleChangeFor(event, 'fairways_hit')} value={this.state.fairways_hit} />
           <input placeholder="Total Possible Fairways" type='number' 
             onChange={(event) => this.handleChangeFor(event, 'possible_fairways')} value={this.state.possible_fairways} />
-          <button>Submit</button>
-          <button>Cancel</button>
+          <button onClick={this.checkFields}>Submit</button>
+          <button onClick={this.clearFields}>Clear</button>
+          <button onClick={this.sendToDashboard}>Cancel</button>
         </form>
       </div>
     )
   }
 }
 
-export default connect(mapStoreToProps)(AddRound);
+export default connect(mapStoreToProps)(withRouter(AddRound));
