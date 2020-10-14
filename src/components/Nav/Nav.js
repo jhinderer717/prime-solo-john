@@ -27,7 +27,7 @@ const Nav = (props) => {
     menu = 
     <div className="nav-right"
     onClick={() => setShowMenu(!showMenu)}>
-      <Link className="nav-link" to={loginLinkData.path}>
+      <Link className="nav-link top-button" to={loginLinkData.path}>
         {/* Show this link if they are logged in or not,
         but call this link 'Home' if they are logged in,
         and call this link 'Login / Register' if they are not */}
