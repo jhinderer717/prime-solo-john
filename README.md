@@ -1,4 +1,4 @@
-# Prime Project
+# Prime Project -- MUST UPDATE FOR HANDICAPP
 
 This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
 

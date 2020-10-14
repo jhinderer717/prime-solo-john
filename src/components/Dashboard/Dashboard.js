@@ -56,12 +56,12 @@ import {Line} from 'react-chartjs-2';
 const Dashboard = (mapStoreToProps) => { // this.props becomes mapStoreToProps
   const [chartData, setChartData] = useState({});
   
-  const rounds = mapStoreToProps.store.roundReducer;
+  const rounds = mapStoreToProps.store.roundReducer; // rounds is now an array of object with the round data [ {...}, {...},... ]
   console.log('rounds:', rounds);
-  const roundData = [];
-  const firstRound = rounds[0];
+  //const roundData = [];
+  const firstRound = rounds[0]; // firstRound is the first object of rounds {id: 5, user_id: 1, date: ... }
   console.log('firstRound', firstRound);
-  //console.log('firstRound id:', firstRound.id);
+  //console.log('firstRound id:', firstRound.id);  PROBLEM IS RIGHT HERE. Why can't I access info in this object?
   const chart = () => {
     setChartData({
       labels: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
@@ -93,6 +93,10 @@ const Dashboard = (mapStoreToProps) => { // this.props becomes mapStoreToProps
       <p>Your ID is: {mapStoreToProps.store.user.id}</p>
       <p>Last 5 Rounds waiting to be graphed:</p>
       {JSON.stringify(mapStoreToProps.store.roundReducer)}
+      {/* {mapStoreToProps.store.roundReducer.map(round =>      it doesn't let me map through even though its the right form
+        <p>test</p>
+        {round.id}  
+      )} */}
       <br/>
       <div>
         <Line data={chartData} options={{

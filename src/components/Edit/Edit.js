@@ -19,7 +19,7 @@ class Edit extends Component {
     return (
       <div>
         <p>edit</p>
-        {JSON.stringify(this.props.rounds)}
+        {JSON.stringify(this.props.rounds)} 
         {/* {this.props.rounds.map((round) =>
           round.id
         )} */}
