@@ -55,6 +55,13 @@ import {Line} from 'react-chartjs-2';
 
 const Dashboard = (mapStoreToProps) => { // this.props becomes mapStoreToProps
   const [chartData, setChartData] = useState({});
+  
+  const rounds = mapStoreToProps.store.roundReducer;
+  console.log('rounds:', rounds);
+  const roundData = [];
+  const firstRound = rounds[0];
+  console.log('firstRound', firstRound);
+  //console.log('firstRound id:', firstRound.id);
   const chart = () => {
     setChartData({
       labels: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
@@ -62,6 +69,7 @@ const Dashboard = (mapStoreToProps) => { // this.props becomes mapStoreToProps
         {
           label: 'level of thiccness',
           data: [32, 45, 12, 76, 69],
+          //data: mapStoreToProps.store.roundReducer.map((round) => round.score_to_par),
           backgroundColor: [
             'rgba(75, 192, 190, 6'
           ],
@@ -71,7 +79,7 @@ const Dashboard = (mapStoreToProps) => { // this.props becomes mapStoreToProps
     })
   }
   useEffect(() => {
-    console.log('mounted');
+    //console.log('mounted');
     mapStoreToProps.dispatch({
       type: 'GET_ROUNDS'
     });
@@ -87,7 +95,9 @@ const Dashboard = (mapStoreToProps) => { // this.props becomes mapStoreToProps
       {JSON.stringify(mapStoreToProps.store.roundReducer)}
       <br/>
       <div>
-        <Line data={chartData} />
+        <Line data={chartData} options={{
+          responsive: true
+        }} />
       </div>
       <LogOutButton className="log-in" />
     </div>
