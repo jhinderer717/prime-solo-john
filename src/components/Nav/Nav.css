@@ -17,9 +17,9 @@
   color: #f2f2f2;
   background-color:black;
   text-align: center;
-  padding: 24px 10px;
+  padding: 13px;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 18px;
 
   /* these last two make the logout button in
   the nav bar look like another link */
@@ -38,6 +38,7 @@
   /* background-color: black; */
   display: grid;
   width: 100%;
+
 }
 
 .top-button{
