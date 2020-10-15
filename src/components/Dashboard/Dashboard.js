@@ -19,14 +19,17 @@ const Dashboard = (mapStoreToProps) => { // this.props becomes mapStoreToProps
     let roundDate =[];
     let roundScore = [];
     let roundPutts = [];
-    let roundApproach = []
+    let roundApproach = [];
+    let roundDriver = [];
     rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
     rounds.map(round => roundScore.push(round.score_to_par));
     rounds.map(round => roundPutts.push(round.putts));
-    rounds.map(round => roundApproach.push(round.approach_shots / round.number_holes + 50));
+    rounds.map(round => roundDriver.push(round.fairways_hit / round.possible_fairways + 15));
+    rounds.map(round => roundApproach.push(round.approach_shots / round.number_holes + 30));
     console.log('roundScore', roundScore);
     console.log('roundPutts', roundPutts);
     console.log('roundApproach', roundApproach);
+    console.log('roundDriver', roundDriver);
     //console.log('roundDate', roundDate);
     
     //setRoundScore(roundScore);
@@ -36,18 +39,11 @@ const Dashboard = (mapStoreToProps) => { // this.props becomes mapStoreToProps
       labels: roundDate,
       datasets: [
         {
-          label: 'Score to Par',
-          data: roundScore,
-          //data: roundScoreState, // I can log this out and see an array of data, but it doesn't want to be graphed
-          backgroundColor: ["rgba(200, 80, 0, 6)"],
-          borderWidth: 4
-        },
-        {
-          label: 'Putts',
-          data: roundPutts,
+          label: 'Driver',
+          data: roundDriver,
           //data: [2,3,4,0,6],
           //data: roundScoreState, // I can log this out and see an array of data, but it doesn't want to be graphed
-          backgroundColor: ["rgba(20, 250, 100, 6)"],
+          backgroundColor: ["rgba(252, 181, 13, 6)"],
           borderWidth: 4
         },
         {
@@ -56,6 +52,14 @@ const Dashboard = (mapStoreToProps) => { // this.props becomes mapStoreToProps
           //data: [2,3,4,0,6],
           //data: roundScoreState, // I can log this out and see an array of data, but it doesn't want to be graphed
           backgroundColor: ["rgba(20, 25, 199, 6)"],
+          borderWidth: 4
+        },
+        {
+          label: 'Putts',
+          data: roundPutts,
+          //data: [2,3,4,0,6],
+          //data: roundScoreState, // I can log this out and see an array of data, but it doesn't want to be graphed
+          backgroundColor: ["rgba(200, 80, 0, 6)"],
           borderWidth: 4
         },
       ]
