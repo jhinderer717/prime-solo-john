@@ -39,7 +39,6 @@ class Edit extends Component {
 
 const mapStoreToProps = reduxState => ({
   rounds: reduxState.allRoundReducer,
-  // reduxState,
 });
 
 export default connect(mapStoreToProps)(Edit);
