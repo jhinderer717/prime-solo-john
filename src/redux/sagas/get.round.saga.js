@@ -7,7 +7,7 @@ function* getRound() {
       method: 'GET',
       url: '/api/golf',
    });
-   //console.log('response:', response.data);
+   console.log('getRound saga response:', response.data);
    yield put({
       type: 'FETCH_ROUND',
       payload: response.data
@@ -20,7 +20,7 @@ function* getAllRound() {
       method: 'GET',
       url: '/api/golf/all',
    });
-   //console.log('response:', response.data);
+   console.log('getAllRound saga response:', response.data);
    yield put({
       type: 'FETCH_ALL_ROUNDS',
       payload: response.data
