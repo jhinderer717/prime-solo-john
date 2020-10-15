@@ -13,7 +13,7 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
   
   const scoreChart = () => {
    const rounds = mapStoreToProps.store.roundReducer;
-   console.log('rounds:', rounds);
+   //console.log('rounds:', rounds);
    let roundDate =[];
    let roundScore = [];
    let roundPutts = [];
@@ -24,10 +24,10 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
    rounds.map(round => roundPutts.push(round.putts));
    rounds.map(round => roundDriver.push(round.fairways_hit / round.possible_fairways + 15));
    rounds.map(round => roundApproach.push(round.approach_shots / round.number_holes + 30));
-   console.log('roundScore', roundScore);
-   console.log('roundPutts', roundPutts);
-   console.log('roundApproach', roundApproach);
-   console.log('roundDriver', roundDriver);
+   // console.log('roundScore', roundScore);
+   // console.log('roundPutts', roundPutts);
+   // console.log('roundApproach', roundApproach);
+   // console.log('roundDriver', roundDriver);
    //console.log('roundDate', roundDate);
    
    //setRoundScore(roundScore);
