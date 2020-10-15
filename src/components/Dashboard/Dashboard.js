@@ -9,32 +9,33 @@ import { Line } from 'react-chartjs-2';
 const Dashboard = (mapStoreToProps) => { // this.props becomes mapStoreToProps
   const [chartData, setChartData] = useState({});
   
-  const rounds = mapStoreToProps.store.roundReducer; // rounds is now an array of object with the round data [ {...}, {...},... ]
-  console.log('rounds:', rounds);
-  const roundData = [];
-  rounds.map(round => roundData.push(round.id))
-  console.log('roundData', roundData);
-  // const secondRound = rounds[1]; // firstRound is the first object of rounds {id: 5, user_id: 1, date: ... }
-  // console.log('secondRound', secondRound);
   
   const chart = () => {
+
+    const rounds = mapStoreToProps.store.roundReducer;
+    console.log('rounds:', rounds);
+    let roundScore = [];
+    let roundDate =[];
+    rounds.map(round => roundScore.push(round.score_to_par));
+    rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
+    console.log('roundScore', roundScore);
+    console.log('roundDate', roundDate);
+
     setChartData({
       labels: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
       datasets: [
         {
-          label: 'level of thiccness',
+          label: 'Contributions to Score',
           //data: [32, 45, 12, 76, 69],
-          data: [5, 4, 3, 1, 6],
-          //data: roundData,
-          //data: mapStoreToProps.store.roundReducer.map((round) => round.score_to_par),
-          backgroundColor: [
-            'rgba(75, 192, 190, 6'
-          ],
+          //data: [5, 4, 3, 1, 6],
+          data: roundScore,
+          backgroundColor: ["rgba(75, 192, 190, 6)"],
           borderWidth: 4
         }
       ]
     })
   }
+
   useEffect(() => {
     //console.log('mounted');
     mapStoreToProps.dispatch({
