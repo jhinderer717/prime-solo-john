@@ -16,14 +16,18 @@ const Dashboard = (mapStoreToProps) => { // this.props becomes mapStoreToProps
 
     const rounds = mapStoreToProps.store.roundReducer;
     console.log('rounds:', rounds);
+    let roundDate =[];
     let roundScore = [];
     let roundPutts = [];
-    let roundDate =[];
+    let roundApproach = []
+    rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
     rounds.map(round => roundScore.push(round.score_to_par));
     rounds.map(round => roundPutts.push(round.putts));
-    rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
+    rounds.map(round => roundApproach.push(round.approach_shots / round.number_holes + 50));
     console.log('roundScore', roundScore);
-    console.log('roundDate', roundDate);
+    console.log('roundPutts', roundPutts);
+    console.log('roundApproach', roundApproach);
+    //console.log('roundDate', roundDate);
     
     //setRoundScore(roundScore);
 
@@ -41,10 +45,19 @@ const Dashboard = (mapStoreToProps) => { // this.props becomes mapStoreToProps
         {
           label: 'Putts',
           data: roundPutts,
+          //data: [2,3,4,0,6],
           //data: roundScoreState, // I can log this out and see an array of data, but it doesn't want to be graphed
           backgroundColor: ["rgba(20, 250, 100, 6)"],
           borderWidth: 4
-        }
+        },
+        {
+          label: 'Approach',
+          data: roundApproach,
+          //data: [2,3,4,0,6],
+          //data: roundScoreState, // I can log this out and see an array of data, but it doesn't want to be graphed
+          backgroundColor: ["rgba(20, 25, 199, 6)"],
+          borderWidth: 4
+        },
       ]
     })
   }
@@ -101,19 +114,19 @@ const Dashboard = (mapStoreToProps) => { // this.props becomes mapStoreToProps
             mode: 'index'
           },
           scales: {
-            x: {
+            xAxes: [{
               scaleLabel: {
                 display: true,
                 labelString: 'Date'
               }
-            },
-            y: {
+            }],
+            yAxes: [{
               stacked: true,
               scaleLabel: {
                 display: true,
-                labelString: 'Value'
+                labelString: 'Handicap'
               }
-            }
+            }]
           }
         }} />
       </div>
