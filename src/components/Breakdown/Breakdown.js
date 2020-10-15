@@ -15,33 +15,42 @@ const Breakdown = (mapStoreToProps) => {
   const [graphInterval, changeGraphInterval] = useState(5);
   const [dateState, setDateState] = useState({}); // not in use
 
-  console.log('graphInterval:', graphInterval);
+  
 
   const initiate5Rounds = () => {
+    console.log('initiate5Rounds called');
     changeGraphInterval(5);
-    callAllGraphs();
-  }
-
-  const initiateSeason = () => {
+    //callAllGraphs();                                        // uncommenting this to update the graphs after changing the state
+  }                                                           // graphInterval causes the graphInterval to be behind by 1 click.
+  const initiateSeason = () => {                              // Maybe try extracting the condition where the data is set outside the graphs
+    console.log('initiateSeason called');
     changeGraphInterval('season');
-    callAllGraphs();
+    //callAllGraphs();
+  }
+  const initiateLifetime = () => {
+    console.log('initiateLifetime called');
+    changeGraphInterval('lifetime');
+    //callAllGraphs();
   }
 
-  const initiateLifetime = () => {
-    changeGraphInterval('lifetime');
-    callAllGraphs();
-  }
 
   const callAllGraphs = () => {
+    console.log('calling all graphs');
     scoreChart();
     puttChart();
     approachChart();
     fairwayChart();
   }
 
+  console.log('graphInterval:', graphInterval);
+
+
+
+
+
   const scoreChart = () => {
 
-    console.log('graphInterval', graphInterval);
+    console.log('in Score graph, graphInterval', graphInterval);
 
     let rounds;
     if(graphInterval === 5){
@@ -162,6 +171,7 @@ const Breakdown = (mapStoreToProps) => {
       type: 'GET_ALL_ROUNDS'
     });
     initiate5Rounds();
+    callAllGraphs();
   }, []); // warning told me to remove --   , []);   -- caused error
 
   return(
