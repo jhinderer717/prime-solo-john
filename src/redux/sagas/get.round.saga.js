@@ -27,9 +27,23 @@ function* getAllRound() {
    });
 }
 
+function* getSeasonRound() {
+   //console.log('getAllRoundSaga hit');
+   let response = yield axios({
+      method: 'GET',
+      url: '/api/golf/season',
+   });
+   console.log('getSeasonRound saga response:', response.data);
+   yield put({
+      type: 'FETCH_SEASON_ROUNDS',
+      payload: response.data
+   });
+}
+
 function* getRoundSaga() {
   yield takeLatest('GET_ROUNDS', getRound);
   yield takeLatest('GET_ALL_ROUNDS', getAllRound);
+  yield takeLatest('GET_SEASON_ROUNDS', getSeasonRound);
 }
 
 export default getRoundSaga;

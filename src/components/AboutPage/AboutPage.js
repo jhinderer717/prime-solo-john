@@ -29,8 +29,8 @@ const AboutPage = () => (
         <li>Strokes over (or under) par</li>
         <li>Total putts</li>
         <li>Total extra approach shots</li>
-        <li>Fairways hit</li>
-        <li>Fairways to hit</li>
+        <li>Fairways hit off the Tee</li>
+        <li>Possible Fairways to hit</li>
       </ul>
       <p>
         It is easiest to keep track of these stats for every hole. On your scorecard for the 
@@ -39,6 +39,11 @@ const AboutPage = () => (
         Starting in the bottom left corner going right, mark dots for how many putts you had. 
         At the end of the round, total the putts, extra approach shots, fairways hit, and 
         fairways to hit (all holes excluding par threes).
+      </p>
+      <p>
+        Disclaimer: USGA give you a handicap index calculated by averaging the best 8 scores of
+        the most recent 20 rounds with exception to a couple safeguards in unusual scoring circumstances.
+        HandicApp averages your strokes over par over a specified interval.
       </p>
     </div>
   </div>

@@ -6,7 +6,21 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   console.log('golf.get hit, giving 5 latest rounds');
-  const queryString = `SELECT * FROM "round" WHERE "user_id" = $1 ORDER BY "date" ASC LIMIT 5`;
+  const queryString = `SELECT * FROM "round" WHERE "user_id" = $1 ORDER BY "date" ASC LIMIT 5;`;
+  pool.query(queryString, [req.user.id])
+    .then((result) => {
+      console.log('result:', result.rows);
+      res.send(result.rows); // rows[0] to get rid of array brackets
+    }).catch((error) => {
+      console.log(error);
+      res.sendStatus(500);
+    });
+});
+
+router.get('/season', (req, res) => {
+  console.log('golf.season all hit');
+  const queryString = `SELECT * FROM "round" WHERE "date" > '2020-1-1' AND "user_id" = $1
+	                      ORDER BY "date" ASC;`;
   pool.query(queryString, [req.user.id])
     .then((result) => {
       console.log('result:', result.rows);
@@ -19,7 +33,7 @@ router.get('/', (req, res) => {
 
 router.get('/all', (req, res) => {
   console.log('golf.get all hit');
-  const queryString = `SELECT * FROM "round" WHERE "user_id" = $1 ORDER BY "date" ASC`;
+  const queryString = `SELECT * FROM "round" WHERE "user_id" = $1 ORDER BY "date" ASC;`;
   pool.query(queryString, [req.user.id])
     .then((result) => {
       console.log('result:', result.rows);

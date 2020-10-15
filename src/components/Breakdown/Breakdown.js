@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import './Breakdown.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Line } from 'react-chartjs-2';
+import ComboGraph from '../ComboGraph/ComboGraph';
 
 
 const Breakdown = (mapStoreToProps) => {
@@ -11,11 +12,60 @@ const Breakdown = (mapStoreToProps) => {
   const [puttChartData, setPuttChartData] = useState({});
   const [approachChartData, setApproachChartData] = useState({});
   const [fairwayChartData, setfairwayChartData] = useState({});
-  const [roundScoreState, setRoundScore] = useState([]);
+  const [graphInterval, changeGraphInterval] = useState(5);
+  const [roundScoreState, setRoundScore] = useState([]); // Doesn't work
+
+  const callAllGraphs = () => {
+    scoreChart();
+    puttChart();
+    approachChart();
+    fairwayChart();
+  }
+
+  const getRoundData = () => {
+    mapStoreToProps.dispatch({
+      type: 'GET_ROUNDS'
+    });
+    changeGraphInterval(5);
+    console.log('graphInterval', graphInterval);
+    callAllGraphs();
+  }
+
+  const getSeasonData = () => {
+    mapStoreToProps.dispatch({
+      type: 'GET_SEASON_ROUNDS'
+    });
+    changeGraphInterval('season');
+    console.log('graphInterval', graphInterval);
+    callAllGraphs();
+  }
+
+  const getLifetimeData = () => {
+    mapStoreToProps.dispatch({
+      type: 'GET_ALL_ROUNDS'
+    });
+    changeGraphInterval('lifetime');
+    console.log('graphInterval', graphInterval);
+    callAllGraphs();
+  }
+
 
   const scoreChart = () => {
 
-    const rounds = mapStoreToProps.store.roundReducer;
+    console.log('graphInterval', graphInterval);
+
+    let rounds;
+    if(graphInterval === 5){
+      console.log('interval is 5');
+      rounds = mapStoreToProps.store.roundReducer;
+    }else if(graphInterval === 'season'){
+      console.log('interval is season');
+      rounds = mapStoreToProps.store.seasonRoundReducer;
+    }else{
+      console.log('interval is lifetime');
+      rounds = mapStoreToProps.store.allRoundReducer;
+    }
+    //const rounds = mapStoreToProps.store.roundReducer;
     console.log('rounds:', rounds);
     let roundScore = [];
     let roundDate =[];
@@ -31,10 +81,10 @@ const Breakdown = (mapStoreToProps) => {
       labels: roundDate,
       datasets: [
         {
-          label: 'Score to Par',
+          label: 'Strokes Over Par (adjusted to 18 holes) by Round',
           data: roundScore,
           //data: roundScoreState, // I can log this out and see an array of data, but it doesn't want to be graphed
-          backgroundColor: ["rgba(200, 80, 0, 6)"],
+          backgroundColor: ["rgba(77, 211, 90, 1.0)"],
           borderWidth: 4
         }
       ]
@@ -43,16 +93,21 @@ const Breakdown = (mapStoreToProps) => {
 
   const puttChart = () => {
 
-    const rounds = mapStoreToProps.store.roundReducer;
-    //console.log('rounds:', rounds);
+    let rounds;
+    if(graphInterval === 5){
+      console.log('interval is 5');
+      rounds = mapStoreToProps.store.roundReducer;
+    }else if(graphInterval === 'season'){
+      console.log('interval is season');
+      rounds = mapStoreToProps.store.seasonRoundReducer;
+    }else{
+      console.log('interval is lifetime');
+      rounds = mapStoreToProps.store.allRoundReducer;
+    }
     let putts = [];
     let roundDate =[];
     rounds.map(round => putts.push(round.putts / round.number_holes));
     rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
-    console.log('putts', putts);
-    //console.log('roundDate', roundDate);
-    
-    //setRoundScore(roundScore);
 
     setPuttChartData({
       //labels: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
@@ -62,7 +117,7 @@ const Breakdown = (mapStoreToProps) => {
           label: 'Putts per Hole by Round',
           data: putts,
           //data: roundScoreState, // I can log this out and see an array of data, but it doesn't want to be graphed
-          backgroundColor: ["rgba(5, 5, 2000, 6)"],
+          backgroundColor: ["rgba(200, 80, 0, 6)"],
           borderWidth: 4
         }
       ]
@@ -71,8 +126,17 @@ const Breakdown = (mapStoreToProps) => {
 
   const approachChart = () => {
 
-    const rounds = mapStoreToProps.store.roundReducer;
-    //console.log('rounds:', rounds);
+    let rounds;
+    if(graphInterval === 5){
+      console.log('interval is 5');
+      rounds = mapStoreToProps.store.roundReducer;
+    }else if(graphInterval === 'season'){
+      console.log('interval is season');
+      rounds = mapStoreToProps.store.seasonRoundReducer;
+    }else{
+      console.log('interval is lifetime');
+      rounds = mapStoreToProps.store.allRoundReducer;
+    }
     let roundApproach = [];
     let roundDate =[];
     rounds.map(round => roundApproach.push(round.approach_shots / round.number_holes));
@@ -90,7 +154,7 @@ const Breakdown = (mapStoreToProps) => {
           label: 'Average Extra Approach Shots per Hole by Round',
           data: roundApproach,
           //data: roundScoreState, // I can log this out and see an array of data, but it doesn't want to be graphed
-          backgroundColor: ["rgba(200, 15, 200, 6)"],
+          backgroundColor: ["rgba(20, 25, 199, 6)"],
           borderWidth: 4
         }
       ]
@@ -99,8 +163,17 @@ const Breakdown = (mapStoreToProps) => {
 
   const fairwayChart = () => {
 
-    const rounds = mapStoreToProps.store.roundReducer;
-    //console.log('rounds:', rounds);
+    let rounds;
+    if(graphInterval === 5){
+      console.log('interval is 5');
+      rounds = mapStoreToProps.store.roundReducer;
+    }else if(graphInterval === 'season'){
+      console.log('interval is season');
+      rounds = mapStoreToProps.store.seasonRoundReducer;
+    }else{
+      console.log('interval is lifetime');
+      rounds = mapStoreToProps.store.allRoundReducer;
+    }
     let roundFairway = [];
     let roundDate =[];
     rounds.map(round => roundFairway.push(round.fairways_hit / round.possible_fairways));
@@ -115,7 +188,7 @@ const Breakdown = (mapStoreToProps) => {
       labels: roundDate,
       datasets: [
         {
-          label: 'Score to Par',
+          label: 'Fairway Hit % off the Tee by Round',
           data: roundFairway,
           //data: roundScoreState, // I can log this out and see an array of data, but it doesn't want to be graphed
           backgroundColor: ["rgba(252, 181, 13, 6)"],
@@ -127,13 +200,15 @@ const Breakdown = (mapStoreToProps) => {
 
   useEffect(() => {
     console.log('mounted');
-    mapStoreToProps.dispatch({
-      type: 'GET_ROUNDS'
-    });
-    scoreChart();
-    puttChart();
-    approachChart();
-    fairwayChart();
+    // mapStoreToProps.dispatch({
+    //   type: 'GET_ROUNDS'
+    // });
+    getRoundData();
+    callAllGraphs();
+    // scoreChart();
+    // puttChart();
+    // approachChart();
+    // fairwayChart();
   }, []); // warning told me to remove --   , []);   -- caused error
 
   return(
@@ -141,56 +216,65 @@ const Breakdown = (mapStoreToProps) => {
       <h1>Breakdown</h1>
       <section>
         <h3>Last 5 rounds</h3>
-        <h4>Change Interval<p>current season</p><p>lifetime</p></h4>
+        <h4>Change Interval
+          <p><button onClick={getRoundData}>Last 5 Rounds</button></p>
+          <p><button onClick={getSeasonData}>Current Season</button></p>
+          <p><button onClick={getLifetimeData}>Lifetime</button></p>
+        </h4>
       </section>
-      <span>combo graph</span>
+      {/* <span>combo graph</span> */}
       {/* {JSON.stringify(this.props.store.roundReducer)} */}
 
       <div>
+        <ComboGraph />
         <Line data={chartData} options={{
-          responsive: true
+          responsive: true,
+          scales: {
+            yAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: "Strokes",
+              }
+            }]
+          }
         }} />
         <Line data={puttChartData} options={{
-          responsive: true
+          responsive: true,
+          scales: {
+            yAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: "Putts",
+              }
+            }]
+          }
         }} />
         <Line data={approachChartData} options={{
-          responsive: true
+          responsive: true,
+          scales: {
+            yAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: "Strokes",
+              }
+            }]
+          }
         }} />
         <Line data={fairwayChartData} options={{
-          responsive: true
+          responsive: true,
+          scales: {
+            yAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: "Fairway Hit Ratio",
+              }
+            }]
+          }
         }} />
       </div>
     </div>
   )
 }
 
-
-
-
-// class Breakdown extends Component {
-
-//   componentDidMount = () => {
-//     console.log('mounted');
-//     this.props.dispatch({
-//       type: 'GET_ROUNDS'
-//     });
-//   }
-
-//   render() {
-//     return (
-//       <div>
-//         <h1>Breakdown</h1>
-//         <section>
-//            <h3>Last 5 rounds</h3>
-//            <h4>Change Interval<p>current season</p><p>lifetime</p></h4>
-//         </section>
-//         <span>combo graph</span>
-//         {JSON.stringify(this.props.store.roundReducer)}
-//         <br/>
-//         <span>handicap</span> <span>putts</span> <span>approach shots</span> <span>fairways hit</span>
-//       </div>
-//     )
-//   }
-// }
 
 export default connect(mapStoreToProps)(Breakdown);
