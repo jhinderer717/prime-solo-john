@@ -1,4 +1,4 @@
-import { actionChannel, put, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* getRound() {
@@ -22,7 +22,7 @@ function* getAllRound() {
    });
    //console.log('response:', response.data);
    yield put({
-      type: 'FETCH_ROUND',
+      type: 'FETCH_ALL_ROUNDS',
       payload: response.data
    });
 }
