@@ -49,28 +49,33 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
       rounds.map(round => roundApproachTest.push(turnRoundIntoPoints(round)[1]));
       rounds.map(round => roundFairwayTest.push(turnRoundIntoPoints(round)[2]));
       console.log('roundPuttsTest:', roundPuttsTest);             // I can only get getturnRoundIntoPoints
-      console.log('roundPuttsTest:', roundApproachTest);          // to work if it is called within .map
-      console.log('roundPuttsTest:', roundFairwayTest);
+      //console.log('roundPuttsTest:', roundApproachTest);          // to work if it is called within .map
+      //console.log('roundPuttsTest:', roundFairwayTest);
    
+      const roundPutt = roundPuttsTest.reverse();
+      const roundApproach = roundApproachTest.reverse();
+      const roundFairway = roundFairwayTest.reverse();
+      const rightDate = roundDate.reverse();
+      console.log('roundPutt:', roundPutt);
 
       setScoreChartData({
-         labels: roundDate,
+         labels: rightDate,
          datasets: [
             {
                label: 'Fairways',
-               data: roundFairwayTest,
+               data: roundPutt,
                backgroundColor: ["rgba(252, 181, 13, 6)"],
                borderWidth: 4
             },
             {
                label: 'Approach',
-               data: roundApproachTest,
+               data: roundApproach,
                backgroundColor: ["rgba(20, 25, 199, 6)"],
                borderWidth: 4
             },
             {
                label: 'Putts',
-               data: roundPuttsTest,
+               data: roundFairway,
                backgroundColor: ["rgba(200, 80, 0, 6)"],
                borderWidth: 4
             },

@@ -17,13 +17,15 @@ const RecentScoreComp = (mapStoreToProps) => {
     let roundDate =[];
     rounds.map(round => roundScore.push(round.score_to_par));
     rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
+    const roundScoreRight = roundScore.reverse(); // the database gives the most recent 5 in descending
+    const roundDateRight = roundDate.reverse();   // order, must flip to graph in ascending order
 
     setScoreChartData({
-      labels: roundDate,
+      labels: roundDateRight,
       datasets: [
         {
           label: 'Strokes Over Par (adjusted to 18 holes) by Round',
-          data: roundScore,
+          data: roundScoreRight,
           backgroundColor: ["rgba(77, 211, 90, 1.0)"],
           borderWidth: 4
         }
@@ -37,13 +39,15 @@ const RecentScoreComp = (mapStoreToProps) => {
     let roundDate =[];
     rounds.map(round => putts.push(round.putts / round.number_holes));
     rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
+    const roundPutts = putts.reverse();
+    const roundDateRight = roundDate.reverse();
 
     setPuttChartData({
-      labels: roundDate,
+      labels: roundDateRight,
       datasets: [
         {
           label: 'Putts per Hole by Round',
-          data: putts,
+          data: roundPutts,
           backgroundColor: ["rgba(200, 80, 0, 6)"],
           borderWidth: 4
         }
@@ -57,13 +61,15 @@ const RecentScoreComp = (mapStoreToProps) => {
     let roundDate =[];
     rounds.map(round => roundApproach.push(round.approach_shots / round.number_holes));
     rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
+    const roundApproachRight = roundApproach.reverse();
+    const roundDateRight = roundDate.reverse();
 
     setApproachChartData({
-      labels: roundDate,
+      labels: roundDateRight,
       datasets: [
         {
           label: 'Average Extra Approach Shots per Hole by Round',
-          data: roundApproach,
+          data: roundApproachRight,
           backgroundColor: ["rgba(20, 25, 199, 6)"],
           borderWidth: 4
         }
@@ -77,13 +83,15 @@ const RecentScoreComp = (mapStoreToProps) => {
     let roundDate =[];
     rounds.map(round => roundFairway.push(round.fairways_hit / round.possible_fairways));
     rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
+    const roundFairwayRight = roundFairway.reverse();
+    const roundDateRight = roundDate.reverse();
 
     setfairwayChartData({
-      labels: roundDate,
+      labels: roundDateRight,
       datasets: [
         {
           label: 'Fairway Hit Ratio off the Tee by Round',
-          data: roundFairway,
+          data: roundFairwayRight,
           backgroundColor: ["rgba(252, 181, 13, 6)"],
           borderWidth: 4
         }
