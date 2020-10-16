@@ -6,12 +6,19 @@ import EditItem from '../EditItem/EditItem';
 
 class Edit extends Component {
 
-  // componentDidMount = () => {
-  //   console.log('mounted');
-  //   this.props.dispatch({
-  //     type: 'GET_ALL_ROUNDS'
-  //   });
-  // }
+  componentDidMount = () => {
+    console.log('mounted');
+    
+    this.props.dispatch({
+      type: 'GET_ROUNDS'
+    });
+    this.props.dispatch({
+      type: 'GET_SEASON_ROUNDS'
+    });
+    this.props.dispatch({
+      type: 'GET_ALL_ROUNDS'
+    });
+  }
 
   render() {
     console.log('this.props', this.props.rounds);

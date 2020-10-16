@@ -26,7 +26,7 @@ class EditItem extends Component {
       approach_shots: this.props.round.approach_shots,
       fairways_hit: this.props.round.fairways_hit,
       possible_fairways: this.props.round.possible_fairways,
-    })
+    });
   }
 
   editItem = () => {
@@ -69,7 +69,6 @@ class EditItem extends Component {
 
 
   render() {
-    //console.log('this.props', this.props.rounds);
     console.log('this.state', this.state);
     return (
       <div>
@@ -124,6 +123,7 @@ class EditItem extends Component {
 
 
               <button onClick={() => this.confirmEdit(this.props.round.id)}>Confirm</button>
+              <button onClick={() => this.setState({...this.state, edit: false})}>Cancel</button>
             </form>
           </>
           :
