@@ -82,7 +82,7 @@ const RecentScoreComp = (mapStoreToProps) => {
       labels: roundDate,
       datasets: [
         {
-          label: 'Fairway Hit % off the Tee by Round',
+          label: 'Fairway Hit Ratio off the Tee by Round',
           data: roundFairway,
           backgroundColor: ["rgba(252, 181, 13, 6)"],
           borderWidth: 4
@@ -139,7 +139,7 @@ const RecentScoreComp = (mapStoreToProps) => {
           yAxes: [{
             scaleLabel: {
               display: true,
-              labelString: "Fairway Hit Ratio",
+              labelString: "Ratio",
             }
           }]
         }
