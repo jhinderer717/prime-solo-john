@@ -5,6 +5,7 @@ import userSaga from './user.saga';
 import addRoundSaga from './add.round.saga';
 import getRoundSaga from './get.round.saga';
 import deleteRoundSaga from './delete.saga';
+import updateRoundSaga from './update.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -21,5 +22,6 @@ export default function* rootSaga() {
     addRoundSaga(),
     getRoundSaga(),
     deleteRoundSaga(),
+    updateRoundSaga(),
   ]);
 }

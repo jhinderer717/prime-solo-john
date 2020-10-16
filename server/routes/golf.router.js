@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/season', (req, res) => {
-  console.log('golf.season all hit');
+  //console.log('golf.season all hit');
   const queryString = `SELECT * FROM "round" WHERE "date" > '2020-1-1' AND "user_id" = $1
 	                      ORDER BY "date" ASC;`;
   pool.query(queryString, [req.user.id])
@@ -78,6 +78,37 @@ router.delete('/:id', (req, res) => {
     .then(() => {res.sendStatus(200); })
     .catch((err) => {
       console.log('Error in DELETE round query', err);
+      res.sendStatus(500);
+    });
+});
+
+router.put('/:id', (req, res) => {
+  //console.log('router.put hit with req.params:', req.params);
+  //console.log('router.put hit with req.body:', req.body);
+  let queryText = `UPDATE "round"
+                    SET "date" = $1,
+                    "number_holes" = $2,
+                    "score_to_par" = $3,
+                    "putts" = $4,
+                    "approach_shots" = $5,
+                    "fairways_hit" = $6,
+                    "possible_fairways" = $7
+                    WHERE "id" = $8;`;
+  let queryParams = [
+    req.body.date,
+    req.body.number_holes,
+    req.body.score_to_par,
+    req.body.putts,
+    req.body.approach_shots,
+    req.body.fairways_hit,
+    req.body.possible_fairways,
+    req.params.id,
+  ];
+  pool.query(queryText, queryParams)
+    .then(result => {
+      res.sendStatus(201);
+    }).catch(err => {
+      console.log('we have an error in put', err);
       res.sendStatus(500);
     });
 });

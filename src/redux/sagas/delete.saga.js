@@ -1,4 +1,3 @@
-// import { put, takeLatest } from 'redux-saga/effects'; -- take line out later, I don't think a put will be needed
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 

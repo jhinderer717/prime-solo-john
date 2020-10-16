@@ -36,8 +36,13 @@ class EditItem extends Component {
     });
   }
 
-  confirmEdit = () => {
-    console.log('confirmEdit'); // this is where PUT dispatch will go
+  confirmEdit = (id) => {
+    console.log('confirmEdit with id:', id); // this is where PUT dispatch will go
+    this.props.dispatch({
+      type: 'UPDATE_ROUND',
+      url: `/api/golf/${id}`,
+      payload: this.state
+    });
     this.setState({
       edit: false,
     });
@@ -118,19 +123,19 @@ class EditItem extends Component {
               </div>
 
 
-              <button onClick={() => this.confirmEdit()}>Confirm</button>
+              <button onClick={() => this.confirmEdit(this.props.round.id)}>Confirm</button>
             </form>
           </>
           :
           <> 
             <span>
-              {this.props.round.date.split('T', 1)[0]}
-              {this.props.round.number_holes}
-              {this.props.round.score_to_par}
-              {this.props.round.putts}
-              {this.props.round.approach_shots}
-              {this.props.round.fairways_hit}
-              {this.props.round.possible_fairways}
+              date {this.props.round.date.split('T', 1)[0]},
+              holes {this.props.round.number_holes},
+              score {this.props.round.score_to_par},
+              putts {this.props.round.putts},
+              approach {this.props.round.approach_shots},
+              fairways {this.props.round.fairways_hit},
+              possible fairways {this.props.round.possible_fairways},
             </span>
             <button onClick={() => this.editItem(this.props.round.id)}>Edit</button>
             <button onClick={() => { if (window.confirm('Are you sure you wish to delete this round?')) 

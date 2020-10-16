@@ -6,7 +6,6 @@ const allRoundReducer = (state = [], action) => { // state = {} had to be change
    return state;
 };
  
- // user will be on the redux state at:
- // state.user
- export default allRoundReducer;
- 
+// user will be on the redux state at:
+// state.user
+export default allRoundReducer;
