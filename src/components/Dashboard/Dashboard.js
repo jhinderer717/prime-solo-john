@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import ComboGraph from '../ComboGraph/ComboGraph';
+import ComboGraph from '../Graphs/ComboGraph';
 
 
 const Dashboard = (mapStoreToProps) => { // this.props becomes mapStoreToProps
