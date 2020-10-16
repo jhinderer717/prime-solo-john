@@ -3,8 +3,9 @@ import {useState} from 'react';
 import { connect } from 'react-redux';
 import './Breakdown.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { Line } from 'react-chartjs-2';
 import ComboGraph from '../Graphs/ComboGraph';
+import ComboSeasonGraph from '../Graphs/ComboSeason';
+import ComboLifetimeGraph from '../Graphs/ComboLifetime';
 import RecentScoreComp from '../Graphs/RecentGraphs';
 import SeasonComp from '../Graphs/SeasonGraphs';
 import LifetimeComp from '../Graphs/LifetimeGraphs';
@@ -50,7 +51,9 @@ const Breakdown = (mapStoreToProps) => {
         </h4>
       </section>
 
-      <ComboGraph />
+      {graphInterval === 5 && <ComboGraph />}
+      {graphInterval === 'season' && <ComboSeasonGraph />}
+      {graphInterval === 'lifetime' && <ComboLifetimeGraph />}
       
       {graphInterval === 5 && <RecentScoreComp />}
       {graphInterval === 'season' && <SeasonComp />}
