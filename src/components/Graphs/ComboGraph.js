@@ -126,7 +126,8 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
                      }
                   }]
                }
-            }} />
+            }}
+            />
          {/* } */}
 
       </div>
