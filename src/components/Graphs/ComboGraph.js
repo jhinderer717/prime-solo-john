@@ -8,37 +8,14 @@ import { Line } from 'react-chartjs-2';
 const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
    const [chartData, setScoreChartData] = useState({});
    
-
-   
-
-  
   
    const scoreChart = () => {
 
 
-
-
       const rounds = mapStoreToProps.store.roundReducer;
       let roundDate =[];
-      let roundScore = [];
-      let roundPutts = [];
-      let roundApproach = [];
-      let roundDriver = [];
       rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
-      rounds.map(round => roundScore.push(round.score_to_par));
-      rounds.map(round => roundPutts.push(round.putts));
-      rounds.map(round => roundDriver.push(round.fairways_hit / round.possible_fairways + 15));
-      rounds.map(round => roundApproach.push(round.approach_shots / round.number_holes + 30));
-      console.log('rounds', rounds);
-      // console.log('roundScore', roundScore);
-      // console.log('roundPutts', roundPutts);
-      // console.log('roundApproach', roundApproach);
-      // console.log('roundDriver', roundDriver);
-      //console.log('roundDate', roundDate);
 
-
-
-      // const turnRoundIntoPoints = (round) => {
       const turnRoundIntoPoints = (round) => {
  
          const avgPutts = (round.putts / round.number_holes);
@@ -65,30 +42,16 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
          return points;
       }
 
-
       let roundPuttsTest = [];
-      rounds.map(round => roundPuttsTest.push(turnRoundIntoPoints(round)[0]));
-      console.log('roundPuttsTest:', roundPuttsTest);
       let roundApproachTest = [];
-      rounds.map(round => roundApproachTest.push(turnRoundIntoPoints(round)[1]));
-      console.log('roundPuttsTest:', roundApproachTest);
       let roundFairwayTest = [];
+      rounds.map(round => roundPuttsTest.push(turnRoundIntoPoints(round)[0]));
+      rounds.map(round => roundApproachTest.push(turnRoundIntoPoints(round)[1]));
       rounds.map(round => roundFairwayTest.push(turnRoundIntoPoints(round)[2]));
+      console.log('roundPuttsTest:', roundPuttsTest);             // I can only get getturnRoundIntoPoints
+      console.log('roundPuttsTest:', roundApproachTest);          // to work if it is called within .map
       console.log('roundPuttsTest:', roundFairwayTest);
    
-      // const firstRound = mapStoreToProps.store.roundReducer[0]
-      // console.log('firstRound:', firstRound);
-      //console.log('firstRound.putts:', firstRound.putts);
-      // const firstSet = turnRoundIntoPoints(firstRound);
-      // console.log('firstSet', firstSet);
-
-
-
-
-
-
-      
-      //setRoundScore(roundScore);
 
       setScoreChartData({
          labels: roundDate,
@@ -129,8 +92,6 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
       // });
       scoreChart();
    }, []); // warning told me to remove --   , []);   -- caused error
-   //console.log('mapStoreToProps:', mapStoreToProps);
-   //console.log('roundScoreState', roundScoreState);
    return(
       <div>
          {/* {mapStoreToProps.store.roundReducer.length === 0 &&
