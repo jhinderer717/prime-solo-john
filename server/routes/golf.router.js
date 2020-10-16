@@ -72,7 +72,7 @@ router.post('/', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // console.log('req.user:', req.user);
-  console.log('attempting to delete round with id:', req.params);
+  //console.log('attempting to delete round with id:', req.params);
   const queryText = `DELETE FROM "round" WHERE "id" = $1;`;
   pool.query(queryText, [req.params.id])
     .then(() => {res.sendStatus(200); })
