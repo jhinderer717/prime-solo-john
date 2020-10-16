@@ -40,7 +40,7 @@ function* getSeasonRound() {
    });
 }
 
-function* getRoundSaga() {
+function* getRoundSaga() { 
   yield takeLatest('GET_ROUNDS', getRound);
   yield takeLatest('GET_ALL_ROUNDS', getAllRound);
   yield takeLatest('GET_SEASON_ROUNDS', getSeasonRound);
