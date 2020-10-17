@@ -8,7 +8,7 @@ const todayString = today.split(" ");
 const today1 = new Date();
 const thisMonth = (today1.getMonth() + 1);
 let todayState = todayString[3].concat('-', thisMonth, '-', todayString[2]);
-console.log('todayState:', todayState);
+//console.log('todayState:', todayState);
 
 class AddRound extends Component {
 

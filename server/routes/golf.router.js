@@ -17,11 +17,11 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/season', (req, res) => {
-  //console.log('golf.season all hit');
-  const queryString = `SELECT * FROM "round" WHERE "date" > '2020-1-1' AND "user_id" = $1
+router.post('/season', (req, res) => {
+  //console.log('golf.season hit with req.body:', req.body);
+  const queryString = `SELECT * FROM "round" WHERE "date" > $2 AND "user_id" = $1
 	                      ORDER BY "date" ASC;`;
-  pool.query(queryString, [req.user.id])
+  pool.query(queryString, [req.user.id, req.body.year])
     .then((result) => {
       //console.log('result:', result.rows);
       res.send(result.rows); // rows[0] to get rid of array brackets

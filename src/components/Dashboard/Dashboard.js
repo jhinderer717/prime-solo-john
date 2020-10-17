@@ -12,12 +12,12 @@ const Dashboard = (mapStoreToProps) => { // this.props becomes mapStoreToProps
     mapStoreToProps.dispatch({
       type: 'GET_ROUNDS'
     });
-    mapStoreToProps.dispatch({
-      type: 'GET_SEASON_ROUNDS'
-    });
-    mapStoreToProps.dispatch({
-      type: 'GET_ALL_ROUNDS'
-    });
+    // mapStoreToProps.dispatch({
+    //   type: 'GET_SEASON_ROUNDS'
+    // });
+    // mapStoreToProps.dispatch({
+    //   type: 'GET_ALL_ROUNDS'
+    // });
   }, []);
   return(
     <div>

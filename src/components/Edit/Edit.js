@@ -25,7 +25,6 @@ class Edit extends Component {
     return (
       <div>
         <p>edit</p>
-        {/* {JSON.stringify(this.props.rounds)} */}
 
         {this.props.rounds.map(round =>
           <EditItem key={round.id}

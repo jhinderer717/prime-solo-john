@@ -86,9 +86,9 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
 
    useEffect(() => {
       console.log('mounted');
-      // mapStoreToProps.dispatch({
-      //    type: 'GET_ROUNDS'
-      // });
+      mapStoreToProps.dispatch({
+         type: 'GET_ROUNDS'
+      });
       //    mapStoreToProps.dispatch({
       //    type: 'GET_SEASON_ROUNDS'
       // });
@@ -134,6 +134,7 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
             }}
             />
          {/* } */}
+         <button onClick={scoreChart}>Refresh</button>
 
       </div>
    )
