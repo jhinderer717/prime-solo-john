@@ -38,7 +38,7 @@ class EditItem extends Component {
 
   checkDateFormat = () =>{
     console.log('checkDateFormat Hit!');
-    const checkDate = this.state.date.toString().split('-');
+    const checkDate = this.state.date.split('-');
     if(checkDate.length !== 3){
       alert('Enter date in format YYYY-MM-DD');
       return;
@@ -53,9 +53,9 @@ class EditItem extends Component {
     }
     if(checkDate[0].length < 4){
       alert('Invalid year. Enter valid date YYYY-MM-DD');
-    }else{
-      this.confirmEdit(this.props.round.id);
+      return;
     }
+    this.confirmEdit(this.props.round.id);
   }
 
   confirmEdit = (id) => {
