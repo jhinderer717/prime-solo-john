@@ -36,8 +36,30 @@ class EditItem extends Component {
     });
   }
 
+  checkDateFormat = () =>{
+    console.log('checkDateFormat Hit!');
+    const checkDate = this.state.date.toString().split('-');
+    if(checkDate.length !== 3){
+      alert('Enter date in format YYYY-MM-DD');
+      return;
+    }
+    if(checkDate[1] > 12 || checkDate[1] < 1){
+      alert('Invalid Month. Enter valid date YYYY-MM-DD');
+      return;
+    }
+    if(checkDate[2] > 31 || checkDate[2] < 1){
+      alert('Invalid Day of Month. Enter valid date YYYY-MM-DD');
+      return;
+    }
+    if(checkDate[0].length < 4){
+      alert('Invalid year. Enter valid date YYYY-MM-DD');
+    }else{
+      this.confirmEdit(this.props.round.id);
+    }
+  }
+
   confirmEdit = (id) => {
-    console.log('confirmEdit with id:', id); // this is where PUT dispatch will go
+    console.log('confirmEdit with id:', id);
     this.props.dispatch({
       type: 'UPDATE_ROUND',
       url: `/api/golf/${id}`,
@@ -49,7 +71,6 @@ class EditItem extends Component {
   }
 
   removeItem = (id) => {
-    //console.log('removeItem hit with id', id);
     this.props.dispatch({
       type: "DELETE_ROUND",
       payload: id,
@@ -57,10 +78,15 @@ class EditItem extends Component {
   }
 
   handleChangeFor = (event, propertyName) => {
-    console.log('handChangeFor hit');
     this.setState({
       ...this.state,
       [propertyName]: Number(event.target.value)
+    });
+  }
+  handleDateChange = (event) => {
+    this.setState({
+      ...this.state,
+      date: event.target.value,
     });
   }
 
@@ -78,7 +104,7 @@ class EditItem extends Component {
             editing!
             <form>
               <span>Date Played:</span>
-              <input placeholder={this.state.date} onChange={(event) => this.handleChangeFor(event, 'date')} />
+              <input placeholder={this.state.date} onChange={(event) => this.handleDateChange(event)} />
 
               <div>
                 <button onClick={() => this.setState({ ...this.state, number_holes: (this.state.number_holes + 1) })}>+</button>
@@ -122,7 +148,7 @@ class EditItem extends Component {
               </div>
 
 
-              <button onClick={() => this.confirmEdit(this.props.round.id)}>Confirm</button>
+              <button onClick={this.checkDateFormat}>Confirm</button>
               <button onClick={() => this.setState({...this.state, edit: false})}>Cancel</button>
             </form>
           </>

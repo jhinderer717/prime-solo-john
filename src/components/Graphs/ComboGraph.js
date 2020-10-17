@@ -22,9 +22,9 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
          const avgApproach = (round.approach_shots / round.number_holes);
          const avgFairway = (round.fairways_hit / round.possible_fairways);
     
-         const configPutts = (Math.pow((avgPutts - 1), 2) / 4)
-         const configApproach = (avgApproach / 2);
-         const configFairway = ((1.8 / (avgFairway + 1)) - 0.89);
+         const configPutts = (Math.pow((avgPutts - 1), 2) / 4)       //     ((x-1)^2 )/4
+         const configApproach = (avgApproach / 2);                   //     x/2
+         const configFairway = ((1.8 / (avgFairway + 1)) - 0.89);    //     1.8/(x+1) - 0.89
    
          const totalConfigs = (configPutts + configApproach + configFairway);
       
