@@ -21,15 +21,21 @@ import LifetimeComp from '../Graphs/LifetimeGraphs';
 
 const today = Date();
 const todayString = today.split(" ");
-const prevYear = todayString[3] - 1;
-const yearArray = [prevYear, '1']; // concat requires an array
-//const todayState = yearArray[0].concat('-', yearArray[1], '-', '1');
+const prevYear = Number(todayString[3]) - 1;
+const prevYearString = prevYear.toString();
+const yearArray = [prevYearString, '12', '31']; // concat requires an array
+const lastNewYear = yearArray[0].concat('-', yearArray[1], '-', yearArray[2]);
 
 
 
 const Breakdown = (mapStoreToProps) => {
   const [graphInterval, changeGraphInterval] = useState(5);
+  //console.log('todayString:', todayString);
+  //console.log('todayString[3]:', todayString[3]);
+  console.log('prevYear:', prevYear);
+  console.log('prevYearString', prevYearString);
   console.log('yearArray:', yearArray);
+  console.log('lastNewYear:', lastNewYear);
 
 
   const initiate5Rounds = () => {
@@ -50,7 +56,7 @@ const Breakdown = (mapStoreToProps) => {
     console.log('mounted');
     mapStoreToProps.dispatch({ // no need for 5 round dispatch, combo graph fills that up
       type: 'GET_SEASON_ROUNDS',
-      //payload: thisYear,
+      payload: lastNewYear,
     });
     mapStoreToProps.dispatch({
       type: 'GET_ALL_ROUNDS'
