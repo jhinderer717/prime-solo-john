@@ -7,8 +7,9 @@ import { Line } from 'react-chartjs-2';
 
 const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
    const [chartData, setScoreChartData] = useState({});
-   
-  
+
+
+
    const scoreChart = () => {
 
 
@@ -99,11 +100,7 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
    }, []); // warning told me to remove --   , []);   -- caused error
    return(
       <div>
-         {/* {mapStoreToProps.store.roundReducer.length === 0 &&
-            <p>no data for combo graph!!!!</p>
-         } */}
-
-         {/* {mapStoreToProps.store.roundReducer.length === 0 || */}
+         <button onClick={scoreChart}>Refresh</button>
             <Line data={chartData} options={{
                responsive: true,
                title: {
@@ -128,13 +125,15 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
                      scaleLabel: {
                         display: true,
                         labelString: 'Handicap'
+                     },
+                     ticks: {
+                       suggestedMin: 0,
                      }
                   }]
                }
             }}
             />
          {/* } */}
-         <button onClick={scoreChart}>Refresh</button>
 
       </div>
    )

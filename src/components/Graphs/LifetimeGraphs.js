@@ -108,6 +108,9 @@ const LifetimeComp = (mapStoreToProps) => {
                   scaleLabel: {
                      display: true,
                      labelString: "Strokes",
+                  },
+                  ticks: {
+                    suggestedMin: 0,
                   }
                }]
             }
@@ -119,6 +122,9 @@ const LifetimeComp = (mapStoreToProps) => {
                   scaleLabel: {
                      display: true,
                      labelString: "Putts",
+                  },
+                  ticks: {
+                    suggestedMin: 0,
                   }
                }]
             }
@@ -130,6 +136,9 @@ const LifetimeComp = (mapStoreToProps) => {
                   scaleLabel: {
                      display: true,
                      labelString: "Strokes",
+                  },
+                  ticks: {
+                    suggestedMin: 0,
                   }
                }]
             }
@@ -141,6 +150,10 @@ const LifetimeComp = (mapStoreToProps) => {
                   scaleLabel: {
                      display: true,
                      labelString: "Ratio",
+                  },
+                  ticks: {
+                    suggestedMin: 0,
+                    suggestedMax: 1,
                   }
                }]
             }

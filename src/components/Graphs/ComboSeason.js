@@ -123,6 +123,9 @@ const ComboSeasonGraph = (mapStoreToProps) => { // this.props becomes mapStoreTo
                      scaleLabel: {
                         display: true,
                         labelString: 'Handicap'
+                     },
+                     ticks: {
+                       suggestedMin: 0,
                      }
                   }]
                }

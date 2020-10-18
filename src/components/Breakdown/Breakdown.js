@@ -30,12 +30,6 @@ const lastNewYear = yearArray[0].concat('-', yearArray[1], '-', yearArray[2]);
 
 const Breakdown = (mapStoreToProps) => {
   const [graphInterval, changeGraphInterval] = useState(5);
-  //console.log('todayString:', todayString);
-  //console.log('todayString[3]:', todayString[3]);
-  console.log('prevYear:', prevYear);
-  console.log('prevYearString', prevYearString);
-  console.log('yearArray:', yearArray);
-  console.log('lastNewYear:', lastNewYear);
 
 
   const initiate5Rounds = () => {
@@ -54,6 +48,9 @@ const Breakdown = (mapStoreToProps) => {
 
   useEffect(() => {
     console.log('mounted');
+    mapStoreToProps.dispatch({ // no need for 5 round dispatch, combo graph fills that up
+      type: 'GET_ROUNDS',
+    });
     mapStoreToProps.dispatch({ // no need for 5 round dispatch, combo graph fills that up
       type: 'GET_SEASON_ROUNDS',
       payload: lastNewYear,

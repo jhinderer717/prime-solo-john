@@ -123,6 +123,9 @@ const ComboLifetimeGraph = (mapStoreToProps) => { // this.props becomes mapStore
                      scaleLabel: {
                         display: true,
                         labelString: 'Handicap'
+                     },
+                     ticks: {
+                       suggestedMin: 0,
                      }
                   }]
                }
