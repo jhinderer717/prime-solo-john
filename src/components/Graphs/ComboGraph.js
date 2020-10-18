@@ -49,7 +49,7 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
       rounds.map(round => roundPuttsTest.push(turnRoundIntoPoints(round)[0]));
       rounds.map(round => roundApproachTest.push(turnRoundIntoPoints(round)[1]));
       rounds.map(round => roundFairwayTest.push(turnRoundIntoPoints(round)[2]));
-      console.log('roundPuttsTest:', roundPuttsTest);             // I can only get getturnRoundIntoPoints
+      //console.log('roundPuttsTest:', roundPuttsTest);             // I can only get getturnRoundIntoPoints
       //console.log('roundPuttsTest:', roundApproachTest);          // to work if it is called within .map
       //console.log('roundPuttsTest:', roundFairwayTest);
    
@@ -58,6 +58,11 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
       const roundFairway = roundFairwayTest.reverse();
       const rightDate = roundDate.reverse();
       console.log('roundPutt:', roundPutt);
+      console.log('mapStoreToProps.store.roundReducer', mapStoreToProps.store.roundReducer);
+      // the delayed function makes this ^ log again and mapStoreToProps.store.roundReducer shows empty even though right
+      // above that in the console from the logger roundReducer is full of the last 5 rounds data
+      // It seems it's the importing of mapStoreToProps that isn't working on the initial render, because the round data is
+      // in reduxState as shown by the logger
 
       setScoreChartData({
          labels: rightDate,
@@ -84,10 +89,16 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
       })
    }
 
-
-   useEffect(() => {
-      console.log('mounted');
-      mapStoreToProps.dispatch({
+   const timeFunction = () => {
+      setTimeout(() => {
+         //alert('After 5 seconds!');
+         console.log('5 seconds, recalling scoreChart, combograph'); // why does the button Refresh chart work,
+         scoreChart();                                               // but this delayed call doesn't? Both do
+      }, 5000);                                                      // only 1 thing, call the function yet only
+   }                                                                 // the button works. The button has
+   useEffect(() => {                                                 // onClick={scoreChart} without parenthesis,
+      console.log('mounted');                                        // that's the only difference I can think of
+      mapStoreToProps.dispatch({                                     // other than the onClick is in the return
          type: 'GET_ROUNDS'
       });
       //    mapStoreToProps.dispatch({
@@ -97,6 +108,7 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
       //    type: 'GET_ALL_ROUNDS'
       // });
       scoreChart();
+      timeFunction();
    }, []); // warning told me to remove --   , []);   -- caused error
    return(
       <div>
