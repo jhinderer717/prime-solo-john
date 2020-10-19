@@ -19,18 +19,21 @@ th{
 .button{
    display: flex;
    justify-content: center;
+   margin-top: 4px;
+   margin-bottom: 15px;
 }
 
 #editBtn{
    background-color: dodgerblue;
+   margin-right: 2px;
 }
 
 .displayRound{
    /* display: flexbox;
    justify-content: center; */
-   /* border: indigo;
-   margin: 100px; */
+   margin-left: 4px;
 }
+
 .holesCell{
    /* background-color: rgba(77, 211, 90, 1.0); */
 }
