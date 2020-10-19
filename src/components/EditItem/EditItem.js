@@ -165,19 +165,19 @@ class EditItem extends Component {
             <span>Date: <b>{this.props.round.date.split('T', 1)[0]}</b></span>
             <table>
               <tr>
-                <td>Holes: <b>{this.props.round.number_holes}</b></td>
-                <td>Handicap: <b>{this.props.round.score_to_par}</b></td>
-                <td>Putts: <b>{this.props.round.putts}</b></td>
+                <td className="holesCell">Holes: <b>{this.props.round.number_holes}</b></td>
+                <td className="handicapCell">Handicap: <b>{this.props.round.score_to_par}</b></td>
+                <td className="puttsCell">Putts: <b>{this.props.round.putts}</b></td>
               </tr>
               <tr>
-                <td>Approach: <b>{this.props.round.approach_shots}</b></td>
-                <td>Fairways: <b>{this.props.round.fairways_hit}</b></td>
-                <td>Possible Fairways: <b>{this.props.round.possible_fairways}</b></td>
+                <td className="approachCell">Approach: <b>{this.props.round.approach_shots}</b></td>
+                <td className="fairwaysCell">Fairways: <b>{this.props.round.fairways_hit}</b></td>
+                <td className="possibleCell">Possible Fairways: <b>{this.props.round.possible_fairways}</b></td>
               </tr>
             </table>
           
             <div className="button">
-              <Button variant="contained" className="editBtn" onClick={() => this.editItem(this.props.round.id)}>Edit</Button>
+              <Button variant="contained" id="editBtn" onClick={() => this.editItem(this.props.round.id)}>Edit</Button>
               <Button variant="contained" color="secondary" className="deleteBtn" 
                 onClick={() => { if (window.confirm('Are you sure you wish to delete this round?')) 
                 this.removeItem(this.props.round.id)}}>Delete</Button>

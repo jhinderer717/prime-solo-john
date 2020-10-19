@@ -21,8 +21,8 @@ th{
    justify-content: center;
 }
 
-.editBtn{
-   background-color: indigo;
+#editBtn{
+   background-color: dodgerblue;
 }
 
 .displayRound{
@@ -31,4 +31,23 @@ th{
    /* border: indigo;
    margin: 100px; */
 }
+.holesCell{
+   /* background-color: rgba(77, 211, 90, 1.0); */
+}
 
+.handicapCell{
+   background-color: rgba(77, 211, 90);
+}
+
+.puttsCell{
+   background-color: rgba(200, 80, 0);
+}
+
+.approachCell{
+   background-color: rgba(20, 25, 199);
+   color: floralwhite;
+}
+
+.fairwaysCell, .possibleCell{
+   background-color: rgba(252, 181, 13);
+}
