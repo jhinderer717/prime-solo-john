@@ -3,6 +3,7 @@ table{
    /* width: 80%; */
    /* margin-top: 25px; */
    /* margin-bottom: 30px; */
+   display: table-cell;
 }
 
 table, th, td{ border: 1px solid black; }
@@ -18,5 +19,16 @@ th{
 .button{
    display: flex;
    justify-content: center;
+}
+
+.editBtn{
+   background-color: indigo;
+}
+
+.displayRound{
+   /* display: flexbox;
+   justify-content: center; */
+   /* border: indigo;
+   margin: 100px; */
 }
 
