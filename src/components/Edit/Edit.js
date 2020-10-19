@@ -25,7 +25,7 @@ class Edit extends Component {
     console.log('this.props', this.props.rounds);
     return (
       <div>
-        <p>edit</p>
+        <h1>Edit</h1>
 
         {/* <table> */}
           {/* <thead>

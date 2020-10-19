@@ -101,49 +101,55 @@ class EditItem extends Component {
 
         {this.state.edit ?
           <>
-            editing!
+            <h3>editing!</h3>
             <form>
               <span>Date Played:</span>
               <input placeholder={this.state.date} onChange={(event) => this.handleDateChange(event)} />
 
               <div>
+                <span>Holes Played:</span>
                 <button onClick={() => this.setState({ ...this.state, number_holes: (this.state.number_holes + 1) })}>+</button>
-                <span>Holes Played: {this.state.number_holes}</span>
+                <span>{this.state.number_holes}</span>
                 <button onClick={() => this.setState({ ...this.state, number_holes: (this.state.number_holes - 1) })}>-</button>
               </div>
 
 
               <div>
+                <span>Strokes Over Par:</span>
                 <button onClick={() => this.setState({ ...this.state, score_to_par: (this.state.score_to_par + 1) })}>+</button>
-                <span>Strokes Over Par: {this.state.score_to_par}</span>
+                <span>{this.state.score_to_par}</span>
                 <button onClick={() => this.setState({ ...this.state, score_to_par: (this.state.score_to_par - 1) })}>-</button>
               </div>
 
 
               <div>
+                <span>Putts:</span>
                 <button onClick={() => this.setState({ ...this.state, putts: (this.state.putts + 1) })}>+</button>
-                <span>Putts: {this.state.putts}</span>
+                <span>{this.state.putts}</span>
                 <button onClick={() => this.setState({ ...this.state, putts: (this.state.putts - 1) })}>-</button>
               </div>
 
 
               <div>
+                <span>Approach Shots:</span>
                 <button onClick={() => this.setState({ ...this.state, approach_shots: (this.state.approach_shots + 1) })}>+</button>
-                <span>Approach Shots: {this.state.approach_shots}</span>
+                <span>{this.state.approach_shots}</span>
                 <button onClick={() => this.setState({ ...this.state, approach_shots: (this.state.approach_shots - 1) })}>-</button>
               </div>
 
 
               <div>
+                <span>Fairways Hit:</span>
                 <button onClick={() => this.setState({ ...this.state, fairways_hit: (this.state.fairways_hit + 1) })}>+</button>
-                <span>Fairways Hit: {this.state.fairways_hit}</span>
+                <span>{this.state.fairways_hit}</span>
                 <button onClick={() => this.setState({ ...this.state, fairways_hit: (this.state.fairways_hit - 1) })}>-</button>
               </div>
 
 
               <div>
+                <span>Possible Fairways:</span>
                 <button onClick={() => this.setState({ ...this.state, possible_fairways: (this.state.possible_fairways + 1) })}>+</button>
-                <span>Possible Fairways: {this.state.possible_fairways}</span>
+                <span>{this.state.possible_fairways}</span>
                 <button onClick={() => this.setState({ ...this.state, possible_fairways: (this.state.possible_fairways - 1) })}>-</button>
               </div>
 
@@ -153,26 +159,36 @@ class EditItem extends Component {
             </form>
           </>
           :
-          <table>
-            <tr>
-              <td>Date: {this.props.round.date.split('T', 1)[0]}</td>
-              <td>Holes: {this.props.round.number_holes}</td>
-              <td>Handicap: {this.props.round.score_to_par}</td>
-              <td>Putts: {this.props.round.putts}</td>
-            </tr>
-            <tr>
-              <td>Approach: {this.props.round.approach_shots}</td>
-              <td>Fairways: {this.props.round.fairways_hit}</td>
-              <td>Possible Fairways: {this.props.round.possible_fairways}</td>
-              <td>
-                <button onClick={() => this.editItem(this.props.round.id)}>Edit</button>
-                <button onClick={() => { if (window.confirm('Are you sure you wish to delete this round?')) 
-                  this.removeItem(this.props.round.id)}}>Delete</button>
-              </td>
-            </tr>
-          </table>
-        }
 
+          <>
+            <span>Date: <b>{this.props.round.date.split('T', 1)[0]}</b></span>
+            <table>
+              <tr>
+                {/* <td>Date: <b>{this.props.round.date.split('T', 1)[0]}</b></td> */}
+                <td>Holes: <b>{this.props.round.number_holes}</b></td>
+                <td>Handicap: <b>{this.props.round.score_to_par}</b></td>
+                <td>Putts: <b>{this.props.round.putts}</b></td>
+              </tr>
+              <tr>
+                <td>Approach: <b>{this.props.round.approach_shots}</b></td>
+                <td>Fairways: <b>{this.props.round.fairways_hit}</b></td>
+                <td>Possible Fairways: <b>{this.props.round.possible_fairways}</b></td>
+                {/* <td>
+                  <button onClick={() => this.editItem(this.props.round.id)}>Edit</button>
+                  <button onClick={() => { if (window.confirm('Are you sure you wish to delete this round?')) 
+                    this.removeItem(this.props.round.id)}}>Delete</button>
+                </td> */}
+              </tr>
+            </table>
+          
+            <div className="button">
+              <button onClick={() => this.editItem(this.props.round.id)}>Edit</button>
+              <button onClick={() => { if (window.confirm('Are you sure you wish to delete this round?')) 
+                this.removeItem(this.props.round.id)}}>Delete</button>
+            </div>
+
+          </>
+        }
       </>
     )
   }

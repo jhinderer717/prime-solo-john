@@ -104,7 +104,7 @@ class AddRound extends Component {
     console.log('state:', this.state);
     return (
       <div>
-        <p>Add Round</p>
+        <h1>Add Round</h1>
         <form>
           <label>Date Played:</label>
           <input placeholder="YYYY-MM-DD" 
