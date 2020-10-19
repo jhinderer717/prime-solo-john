@@ -21,11 +21,15 @@ th{
    justify-content: center;
    margin-top: 4px;
    margin-bottom: 15px;
+   height: 29px;
 }
 
 #editBtn{
    background-color: dodgerblue;
    margin-right: 2px;
+}
+#deleteBtn{
+   color: black;
 }
 
 .displayRound{
@@ -35,7 +39,8 @@ th{
 }
 
 .holesCell{
-   /* background-color: rgba(77, 211, 90, 1.0); */
+   background-color: #00631cf5;
+   color: white;
 }
 
 .handicapCell{
