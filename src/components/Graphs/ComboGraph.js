@@ -140,6 +140,7 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
                      },
                      ticks: {
                        suggestedMin: 0,
+                       //stepSize
                      }
                   }]
                }

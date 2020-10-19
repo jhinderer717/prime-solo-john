@@ -26,7 +26,7 @@
   border:none;
   cursor: pointer;
   outline:0;
-  border-bottom: dotted gold 2px;
+  border-bottom: solid gold 1px;
 }
 
 .nav-link:hover {
@@ -42,7 +42,7 @@
 }
 
 .top-button{
-  border-top: dotted gold 2px;
+  border-top: solid gold 1px;
 }
 
 .hamburger-right{
