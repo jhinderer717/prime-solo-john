@@ -4,6 +4,7 @@ table{
    /* margin-top: 25px; */
    /* margin-bottom: 30px; */
    display: table-cell;
+   box-shadow: 9px 10px 5px grey;
 }
 
 table, th, td{ border: 1px solid black; }
@@ -26,10 +27,16 @@ th{
 
 #editBtn{
    background-color: dodgerblue;
+   box-shadow: 9px 10px 5px grey;
    margin-right: 2px;
 }
 #deleteBtn{
+   box-shadow: 9px 10px 5px grey;
    color: black;
+}
+
+#dateId{
+   text-shadow: 5px 5px 5px grey;
 }
 
 .displayRound{

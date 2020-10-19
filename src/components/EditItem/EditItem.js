@@ -162,7 +162,7 @@ class EditItem extends Component {
           :
 
           <div className="displayRound">
-            <span>Date: <b>{this.props.round.date.split('T', 1)[0]}</b></span>
+            <span id="dateId">Date: <b>{this.props.round.date.split('T', 1)[0]}</b></span>
             <table>
               <tr>
                 <td className="holesCell">Holes: <b>{this.props.round.number_holes}</b></td>
