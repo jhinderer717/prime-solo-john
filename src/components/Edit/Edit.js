@@ -1,3 +1,4 @@
+import './Edit.css';
 import React, {Component} from 'react';
 //import mapStoreToProps from '../../redux/mapStoreToProps';
 import { connect } from 'react-redux';
@@ -26,11 +27,26 @@ class Edit extends Component {
       <div>
         <p>edit</p>
 
-        {this.props.rounds.map(round =>
-          <EditItem key={round.id}
-            round={round}
-          />
-        )}
+        {/* <table> */}
+          {/* <thead>
+            <tr>
+              <th>Date</th>
+              <th>Holes</th>
+              <th>Score</th>
+              <th>Putts</th>
+              <th>Approach</th>
+              <th>Fairways</th>
+              <th>Possible Fairways</th>
+              <th>Action</th>
+            </tr>
+          </thead> */}
+
+          {this.props.rounds.map(round =>
+            <EditItem key={round.id}
+              round={round}
+            />
+          )}
+        {/* </table> */}
         
       </div>
     )

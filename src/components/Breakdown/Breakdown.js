@@ -10,14 +10,6 @@ import RecentScoreComp from '../Graphs/RecentGraphs';
 import SeasonComp from '../Graphs/SeasonGraphs';
 import LifetimeComp from '../Graphs/LifetimeGraphs';
 
-// const today = new Date();
-// const thisYear = today.getFullYear();
-// //console.log('today from Breakdown:', today);
-// //console.log('current year:', thisYear);
-// const prevYear = (thisYear - 1);
-// const dayBefore = prevYear.concat('-', '1', '-', '1');
-// //console.log('dayBefore', dayBefore);
-
 
 const today = Date();
 const todayString = today.split(" ");

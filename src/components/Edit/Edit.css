@@ -1,0 +1,17 @@
+table{ 
+   border-collapse: collapse; 
+   /* width: 80%; */
+   /* margin-top: 25px; */
+   margin-bottom: 30px;
+}
+
+table, th, td{ border: 1px solid black; }
+
+th{ 
+   transform: rotate(-80deg);
+   /* background-color: goldenrod; */
+   height: 65px;
+   padding: 0;
+   
+}
+

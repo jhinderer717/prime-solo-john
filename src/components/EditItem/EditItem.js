@@ -97,7 +97,7 @@ class EditItem extends Component {
   render() {
     console.log('this.state', this.state);
     return (
-      <div>
+      <>
 
         {this.state.edit ?
           <>
@@ -153,23 +153,27 @@ class EditItem extends Component {
             </form>
           </>
           :
-          <> 
-            <span>
-              date {this.props.round.date.split('T', 1)[0]},
-              holes {this.props.round.number_holes},
-              score {this.props.round.score_to_par},
-              putts {this.props.round.putts},
-              approach {this.props.round.approach_shots},
-              fairways {this.props.round.fairways_hit},
-              possible fairways {this.props.round.possible_fairways},
-            </span>
-            <button onClick={() => this.editItem(this.props.round.id)}>Edit</button>
-            <button onClick={() => { if (window.confirm('Are you sure you wish to delete this round?')) 
-              this.removeItem(this.props.round.id)}}>Delete</button>
-          </>
+          <table>
+            <tr>
+              <td>Date: {this.props.round.date.split('T', 1)[0]}</td>
+              <td>Holes: {this.props.round.number_holes}</td>
+              <td>Handicap: {this.props.round.score_to_par}</td>
+              <td>Putts: {this.props.round.putts}</td>
+            </tr>
+            <tr>
+              <td>Approach: {this.props.round.approach_shots}</td>
+              <td>Fairways: {this.props.round.fairways_hit}</td>
+              <td>Possible Fairways: {this.props.round.possible_fairways}</td>
+              <td>
+                <button onClick={() => this.editItem(this.props.round.id)}>Edit</button>
+                <button onClick={() => { if (window.confirm('Are you sure you wish to delete this round?')) 
+                  this.removeItem(this.props.round.id)}}>Delete</button>
+              </td>
+            </tr>
+          </table>
         }
 
-      </div>
+      </>
     )
   }
 }
