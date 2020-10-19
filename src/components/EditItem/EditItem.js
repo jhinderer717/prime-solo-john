@@ -125,9 +125,9 @@ class EditItem extends Component {
 
               <div>
                 <span>Putts:</span>
-                <button onClick={() => this.setState({ ...this.state, putts: (this.state.putts + 1) })}>+</button>
-                <span>{this.state.putts}</span>
                 <button onClick={() => this.setState({ ...this.state, putts: (this.state.putts - 1) })}>-</button>
+                <span>{this.state.putts}</span>
+                <button onClick={() => this.setState({ ...this.state, putts: (this.state.putts + 1) })}>+</button>
               </div>
 
 
