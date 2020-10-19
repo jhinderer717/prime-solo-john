@@ -1,7 +1,9 @@
+import './AddRound.css';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import {withRouter} from 'react-router-dom';
+import { Button } from '@material-ui/core';
 
 const today = Date();
 const todayString = today.split(" ");
@@ -107,24 +109,38 @@ class AddRound extends Component {
         <h1>Add Round</h1>
         <form>
           <label>Date Played:</label>
-          <input placeholder="YYYY-MM-DD" 
+          <input placeholder="YYYY-MM-DD" id="dateInput"
             onChange={(event) => this.handleChangeFor(event, 'date')} value={this.state.date} />
+          <br/>
+
           <label>Holes Played:</label>
-          <input placeholder="Number of Holes Played" type='number' 
+          <input placeholder="Number of Holes Played" type='number' id="holesInput"
             onChange={(event) => this.handleChangeFor(event, 'number_holes')} value={this.state.number_holes} />
-          <input placeholder="Score Over or Under Par" type='number' 
+          <br/>
+  
+          <input placeholder="Score Over or Under Par" type='number' id="scoreInput"
             onChange={(event) => this.handleChangeFor(event, 'score_to_par')} value={this.state.score_to_par} />
-          <input placeholder="Total Putts" type='number' 
+          <br/>
+  
+          <input placeholder="Total Putts" type='number' id="puttsInput"
             onChange={(event) => this.handleChangeFor(event, 'putts')} value={this.state.putts} />
-          <input placeholder="Total Extra Approach Shots" type='number' 
+          <br/>
+  
+          <input placeholder="Total Extra Approach Shots" type='number' id="approachInput"
             onChange={(event) => this.handleChangeFor(event, 'approach_shots')} value={this.state.approach_shots} />
-          <input placeholder="Drives in the Fairway" type='number' 
+          <br/>
+  
+          <input placeholder="Drives in the Fairway" type='number' id="fairwayInput"
             onChange={(event) => this.handleChangeFor(event, 'fairways_hit')} value={this.state.fairways_hit} />
-          <input placeholder="Total Possible Fairways" type='number' 
+          <br/>
+  
+          <input placeholder="Total Possible Fairways" type='number' id="possibleInput"
             onChange={(event) => this.handleChangeFor(event, 'possible_fairways')} value={this.state.possible_fairways} />
-          <button onClick={this.checkFields}>Submit</button>
-          <button onClick={this.clearFields}>Clear</button>
-          <button onClick={this.sendToDashboard}>Cancel</button>
+          <br/>
+  
+          <Button variant="contained" id="submitBtn" onClick={this.checkFields}>Submit</Button>
+          <Button variant="contained" id="clearBtn" onClick={this.clearFields}>Clear</Button>
+          <Button variant="contained" color="secondary" id="cancelBtn" onClick={this.sendToDashboard}>Cancel</Button>
         </form>
       </div>
     )

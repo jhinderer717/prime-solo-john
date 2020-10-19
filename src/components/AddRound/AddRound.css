@@ -1,0 +1,49 @@
+form{
+   text-align: center;
+}
+
+#dateInput{
+   width: 69px;
+}
+
+#holesInput{
+   width: 16px;
+}
+
+#scoreInput{
+   width: 150px;
+}
+
+#puttsInput{
+   width: 63px;
+}
+
+#approachInput{
+   width: 162px;
+}
+
+#fairwayInput{
+   width: 124px;
+}
+
+#possibleInput{
+   width: 140px;
+}
+
+#submitBtn{
+   background-color: dodgerblue;
+   margin-right: 2px;
+   height: 29px;
+}
+
+#clearBtn{
+   background-color: mediumorchid;
+   margin-right: 2px;
+   height: 29px;
+}
+
+#cancelBtn{
+   margin-right: 2px;
+   height: 29px;
+   color: black;
+}
