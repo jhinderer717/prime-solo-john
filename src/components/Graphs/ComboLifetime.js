@@ -1,3 +1,4 @@
+import './ComboLifetime.css';
 import React, { useEffect } from 'react';
 import {useState} from 'react';
 import { connect } from 'react-redux';
@@ -93,13 +94,14 @@ const ComboLifetimeGraph = (mapStoreToProps) => { // this.props becomes mapStore
       scoreChart();
    }, []); // warning told me to remove --   , []);   -- caused error
    return(
-      <div>
+      <div className="lifeComboGraph">
          {/* {mapStoreToProps.store.roundReducer.length === 0 &&
             <p>no data for combo graph!!!!</p>
          } */}
 
          {/* {mapStoreToProps.store.roundReducer.length === 0 || */}
             <Line data={chartData} options={{
+               maintainAspectRatio: false,	// Don't maintain w/h ratio
                responsive: true,
                title: {
                   display: true,

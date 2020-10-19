@@ -1,3 +1,4 @@
+import './ComboSeason.css';
 import React, { useEffect } from 'react';
 import {useState} from 'react';
 import { connect } from 'react-redux';
@@ -93,13 +94,14 @@ const ComboSeasonGraph = (mapStoreToProps) => { // this.props becomes mapStoreTo
       scoreChart();
    }, []); // warning told me to remove --   , []);   -- caused error
    return(
-      <div>
+      <div className="seasonComboGraph">
          {/* {mapStoreToProps.store.roundReducer.length === 0 &&
             <p>no data for combo graph!!!!</p>
          } */}
 
          {/* {mapStoreToProps.store.roundReducer.length === 0 || */}
             <Line data={chartData} options={{
+               maintainAspectRatio: false,	// Don't maintain w/h ratio
                responsive: true,
                title: {
                   display: true,
