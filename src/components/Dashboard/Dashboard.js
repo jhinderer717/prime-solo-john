@@ -1,3 +1,4 @@
+import './Dashboard.css';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
@@ -20,7 +21,7 @@ const Dashboard = (mapStoreToProps) => { // this.props becomes mapStoreToProps
     // });
   }, []);
   return(
-    <div>
+    <div className="dashboardDiv">
       <h1>Dashboard</h1>
       <h2 id="welcome">Welcome, {mapStoreToProps.store.user.username}!</h2>
       {/* <p>Your ID is: {mapStoreToProps.store.user.id}</p> */}

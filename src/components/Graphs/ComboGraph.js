@@ -1,3 +1,4 @@
+import './ComboGraph.css';
 import React, { useEffect } from 'react';
 import {useState} from 'react';
 import { connect } from 'react-redux';
@@ -69,7 +70,7 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
          datasets: [
             {
                label: 'Fairways',
-               data: roundPutt,
+               data: roundFairway,
                backgroundColor: ["rgba(252, 181, 13, 6)"],
                borderWidth: 4
             },
@@ -81,7 +82,7 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
             },
             {
                label: 'Putts',
-               data: roundFairway,
+               data: roundPutt,
                backgroundColor: ["rgba(200, 80, 0, 6)"],
                borderWidth: 4
             },
@@ -111,9 +112,9 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
       timeFunction();
    }, []); // warning told me to remove --   , []);   -- caused error
    return(
-      <div>
+      <div className="comboGraphDiv">
          <button onClick={scoreChart}>Refresh</button>
-            <Line data={chartData} options={{
+            <Line id="lineGraph" data={chartData} options={{
                responsive: true,
                title: {
                   display: true,
@@ -146,7 +147,6 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
                }
             }}
             />
-         {/* } */}
 
       </div>
    )
