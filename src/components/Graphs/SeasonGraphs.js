@@ -12,6 +12,7 @@ const SeasonComp = (mapStoreToProps) => {
   const [puttChartData, setPuttChartData] = useState({});
   const [approachChartData, setApproachChartData] = useState({});
   const [fairwayChartData, setfairwayChartData] = useState({});
+  
 
   const comboChart = () => {
 
@@ -52,9 +53,9 @@ const SeasonComp = (mapStoreToProps) => {
     rounds.map(round => roundPuttsTest.push(turnRoundIntoPoints(round)[0]));
     rounds.map(round => roundApproachTest.push(turnRoundIntoPoints(round)[1]));
     rounds.map(round => roundFairwayTest.push(turnRoundIntoPoints(round)[2]));
-    //console.log('roundPuttsTest:', roundPuttsTest);             // I can only get getturnRoundIntoPoints
-    //console.log('roundPuttsTest:', roundApproachTest);          // to work if it is called within .map
-    //console.log('roundPuttsTest:', roundFairwayTest);
+    // I can only get getturnRoundIntoPoints
+    // to work if it is called within .map
+
 
 
     setComboChartData({
@@ -184,7 +185,7 @@ const SeasonComp = (mapStoreToProps) => {
    
   return(
     <div>
-      <Button variant="contained" id="refresh" onClick={callAll}>Refresh Data</Button>
+      {/* <Button variant="contained" id="refresh" onClick={callAll}>Refresh Data</Button> */}
       <div className="comboSeason">
         <Line data={comboData} options={{
           maintainAspectRatio: false,	// Don't maintain w/h ratio

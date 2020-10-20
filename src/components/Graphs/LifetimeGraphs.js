@@ -182,7 +182,7 @@ const LifetimeComp = (mapStoreToProps) => {
    
    return(
       <div>
-         <Button variant="contained" id="refresh" onClick={callAll}>Refresh Data</Button>
+         {/* <Button variant="contained" id="refresh" onClick={callAll}>Refresh Data</Button> */}
          <div className="comboLifetime">
             <Line data={comboData} options={{
                maintainAspectRatio: false,	// Don't maintain w/h ratio
