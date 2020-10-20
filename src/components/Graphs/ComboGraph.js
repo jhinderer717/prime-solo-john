@@ -2,19 +2,21 @@ import './ComboGraph.css';
 import React, { useEffect } from 'react';
 import {useState} from 'react';
 import { connect } from 'react-redux';
-import mapStoreToProps from '../../redux/mapStoreToProps';
+//import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Line } from 'react-chartjs-2';
 
 
-const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
-   const [chartData, setScoreChartData] = useState({});
 
+const ComboGraph = (props) => { // this.props becomes mapStoreToProps. Changed to declare props at bottom, this.props becomes props
+   const [chartData, setScoreChartData] = useState({});             // Doesn't solve the problem
+
+   console.log('props:', props);
 
 
    const scoreChart = () => {
 
 
-      const rounds = mapStoreToProps.store.roundReducer;
+      const rounds = props.rounds;
       let roundDate =[];
       rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
 
@@ -58,8 +60,8 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
       const roundApproach = roundApproachTest.reverse();
       const roundFairway = roundFairwayTest.reverse();
       const rightDate = roundDate.reverse();
-      console.log('roundPutt:', roundPutt);
-      console.log('mapStoreToProps.store.roundReducer', mapStoreToProps.store.roundReducer);
+      //console.log('roundPutt:', roundPutt);
+      //console.log('props.rounds', props.rounds);
       // the delayed function makes this ^ log again and mapStoreToProps.store.roundReducer shows empty even though right
       // above that in the console from the logger roundReducer is full of the last 5 rounds data
       // It seems it's the importing of mapStoreToProps that isn't working on the initial render, because the round data is
@@ -99,7 +101,7 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
    }                                                                 // the button works. The button has
    useEffect(() => {                                                 // onClick={scoreChart} without parenthesis,
       console.log('mounted');                                        // that's the only difference I can think of
-      mapStoreToProps.dispatch({                                     // other than the onClick is in the return
+      props.dispatch({                                     // other than the onClick is in the return
          type: 'GET_ROUNDS'
       });
       //    mapStoreToProps.dispatch({
@@ -151,6 +153,11 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
       </div>
    )
 }
+
+
+const mapStoreToProps = reduxState => ({
+   rounds: reduxState.roundReducer,
+});
 
 
 // this allows us to use <App /> in index.js

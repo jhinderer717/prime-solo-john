@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-//import mapStoreToProps from '../../redux/mapStoreToProps';
 import { connect } from 'react-redux';
 import { Button } from '@material-ui/core';
 
@@ -93,13 +92,9 @@ class EditItem extends Component {
 
 
 
-
-
   render() {
-    //console.log('this.state', this.state);
     return (
       <>
-
         {this.state.edit ?
           <>
             <h3>editing!</h3>
@@ -184,7 +179,6 @@ class EditItem extends Component {
                 onClick={() => { if (window.confirm('Are you sure you wish to delete this round?')) 
                 this.removeItem(this.props.round.id)}}>Delete</Button>
             </div>
-
           </div>
         }
       </>
