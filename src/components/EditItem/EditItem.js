@@ -96,7 +96,7 @@ class EditItem extends Component {
 
 
   render() {
-    console.log('this.state', this.state);
+    //console.log('this.state', this.state);
     return (
       <>
 
@@ -164,16 +164,18 @@ class EditItem extends Component {
           <div className="displayRound">
             <span id="dateId">Date: <b>{this.props.round.date.split('T', 1)[0]}</b></span>
             <table>
-              <tr>
-                <td className="holesCell">Holes: <b>{this.props.round.number_holes}</b></td>
-                <td className="handicapCell">Handicap: <b>{this.props.round.score_to_par}</b></td>
-                <td className="puttsCell">Putts: <b>{this.props.round.putts}</b></td>
-              </tr>
-              <tr>
-                <td className="approachCell">Approach: <b>{this.props.round.approach_shots}</b></td>
-                <td className="fairwaysCell">Fairways: <b>{this.props.round.fairways_hit}</b></td>
-                <td className="possibleCell">Possible Fairways: <b>{this.props.round.possible_fairways}</b></td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td className="holesCell">Holes: <b>{this.props.round.number_holes}</b></td>
+                  <td className="handicapCell">Handicap: <b>{this.props.round.score_to_par}</b></td>
+                  <td className="puttsCell">Putts: <b>{this.props.round.putts}</b></td>
+                </tr>
+                <tr>
+                  <td className="approachCell">Approach: <b>{this.props.round.approach_shots}</b></td>
+                  <td className="fairwaysCell">Fairways: <b>{this.props.round.fairways_hit}</b></td>
+                  <td className="possibleCell">Possible Fairways: <b>{this.props.round.possible_fairways}</b></td>
+                </tr>
+              </tbody>
             </table>
           
             <div className="button">

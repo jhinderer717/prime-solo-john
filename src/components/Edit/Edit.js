@@ -1,15 +1,15 @@
 import './Edit.css';
 import React, {Component} from 'react';
-//import mapStoreToProps from '../../redux/mapStoreToProps';
 import { connect } from 'react-redux';
 import EditItem from '../EditItem/EditItem';
 
 
+
 class Edit extends Component {
 
+
   componentDidMount = () => {
-    console.log('mounted');
-    
+
     this.props.dispatch({
       type: 'GET_ROUNDS'
     });
@@ -22,32 +22,14 @@ class Edit extends Component {
   }
 
   render() {
-    console.log('this.props', this.props.rounds);
     return (
       <div>
         <h1>Edit</h1>
-
-        {/* <table> */}
-          {/* <thead>
-            <tr>
-              <th>Date</th>
-              <th>Holes</th>
-              <th>Score</th>
-              <th>Putts</th>
-              <th>Approach</th>
-              <th>Fairways</th>
-              <th>Possible Fairways</th>
-              <th>Action</th>
-            </tr>
-          </thead> */}
-
-          {this.props.rounds.map(round =>
+          {this.props.rounds.reverse().map(round => // reverse() because we want the most recent at the top
             <EditItem key={round.id}
               round={round}
             />
           )}
-        {/* </table> */}
-        
       </div>
     )
   }

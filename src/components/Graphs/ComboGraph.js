@@ -109,7 +109,7 @@ const ComboGraph = (mapStoreToProps) => { // this.props becomes mapStoreToProps
       //    type: 'GET_ALL_ROUNDS'
       // });
       scoreChart();
-      timeFunction();
+      //timeFunction();
    }, []); // warning told me to remove --   , []);   -- caused error
    return(
       <div className="comboGraphDiv">
