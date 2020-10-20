@@ -8,6 +8,13 @@ import ComboGraph from '../Graphs/ComboGraph';
 
 const Dashboard = (mapStoreToProps) => { // this.props becomes mapStoreToProps
   
+  const timeFunction = () => {
+    setTimeout(() => {
+      //console.log('1 second..');
+      //useEffect(); this can't be done
+    }, 1000);
+  }
+
   useEffect(() => {
     console.log('mounted');
     mapStoreToProps.dispatch({
@@ -19,6 +26,7 @@ const Dashboard = (mapStoreToProps) => { // this.props becomes mapStoreToProps
     mapStoreToProps.dispatch({
       type: 'GET_ALL_ROUNDS'
     });
+    timeFunction();
   }, []);
   return(
     <div className="dashboardDiv">

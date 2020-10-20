@@ -84,6 +84,7 @@ class AddRound extends Component {
       payload: this.state,
     });
     this.clearFields();
+    //this.sendToDashboard(); new round doesn't always render on the graph right away, so don't right to Dashboard
   }
 
   clearFields = () => {
