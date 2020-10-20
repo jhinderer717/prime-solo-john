@@ -99,11 +99,11 @@ class EditItem extends Component {
           <>
             {/* <h3>editing!</h3> */}
             <form className="editForm">
-              <span>Date Played:</span>
+              <span className="editLabels">Date Played:</span>
               <input placeholder={this.state.date} id="dateInput" onChange={(event) => this.handleDateChange(event)} />
 
               <div className="editLine">
-                <span>Holes Played:</span>
+                <span className="editLabels">Holes Played:</span>
                 <button id="minusButton" onClick={() => this.setState({ ...this.state, number_holes: (this.state.number_holes - 1) })}>-</button>
                 <span><b>{this.state.number_holes}</b></span>
                 <button id="plusButton" onClick={() => this.setState({ ...this.state, number_holes: (this.state.number_holes + 1) })}>+</button>
@@ -111,7 +111,7 @@ class EditItem extends Component {
 
 
               <div className="editLine">
-                <span>Strokes Over Par:</span>
+                <span className="editLabels">Strokes Over Par:</span>
                 <button id="minusButton" onClick={() => this.setState({ ...this.state, score_to_par: (this.state.score_to_par - 1) })}>-</button>
                 <span><b>{this.state.score_to_par}</b></span>
                 <button id="plusButton" onClick={() => this.setState({ ...this.state, score_to_par: (this.state.score_to_par + 1) })}>+</button>
@@ -119,7 +119,7 @@ class EditItem extends Component {
 
 
               <div className="editLine">
-                <span>Putts:</span>
+                <span className="editLabels">Putts:</span>
                 <button id="minusButton" onClick={() => this.setState({ ...this.state, putts: (this.state.putts - 1) })}>-</button>
                 <span><b>{this.state.putts}</b></span>
                 <button id="plusButton" onClick={() => this.setState({ ...this.state, putts: (this.state.putts + 1) })}>+</button>
@@ -127,7 +127,7 @@ class EditItem extends Component {
 
 
               <div className="editLine">
-                <span>Approach Shots:</span>
+                <span className="editLabels">Approach Shots:</span>
                 <button id="minusButton" onClick={() => this.setState({ ...this.state, approach_shots: (this.state.approach_shots - 1) })}>-</button>
                 <span><b>{this.state.approach_shots}</b></span>
                 <button id="plusButton" onClick={() => this.setState({ ...this.state, approach_shots: (this.state.approach_shots + 1) })}>+</button>
@@ -135,7 +135,7 @@ class EditItem extends Component {
 
 
               <div className="editLine">
-                <span>Fairways Hit:</span>
+                <span className="editLabels">Fairways Hit:</span>
                 <button id="minusButton" onClick={() => this.setState({ ...this.state, fairways_hit: (this.state.fairways_hit - 1) })}>-</button>
                 <span><b>{this.state.fairways_hit}</b></span>
                 <button id="plusButton" onClick={() => this.setState({ ...this.state, fairways_hit: (this.state.fairways_hit + 1) })}>+</button>
@@ -143,7 +143,7 @@ class EditItem extends Component {
 
 
               <div className="editLine">
-                <span>Possible Fairways:</span>
+                <span className="editLabels">Possible Fairways:</span>
                 <button id="minusButton" onClick={() => this.setState({ ...this.state, possible_fairways: (this.state.possible_fairways - 1) })}>-</button>
                 <span><b>{this.state.possible_fairways}</b></span>
                 <button id="plusButton" onClick={() => this.setState({ ...this.state, possible_fairways: (this.state.possible_fairways + 1) })}>+</button>
