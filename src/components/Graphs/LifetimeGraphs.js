@@ -3,6 +3,7 @@ import {useState} from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Line } from 'react-chartjs-2';
+import { Button } from '@material-ui/core';
 
 
 const LifetimeComp = (mapStoreToProps) => {
@@ -181,8 +182,8 @@ const LifetimeComp = (mapStoreToProps) => {
    
    return(
       <div>
-         <button onClick={callAll}>Render Data</button>
-         <div className="combo">
+         <Button variant="contained" id="refresh" onClick={callAll}>Refresh Data</Button>
+         <div className="comboLifetime">
             <Line data={comboData} options={{
                maintainAspectRatio: false,	// Don't maintain w/h ratio
                responsive: true,

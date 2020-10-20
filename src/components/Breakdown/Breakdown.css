@@ -1,14 +1,36 @@
 section{
    display: flex;
 }
-/* h4{
-   float: right; doesn't work, skipping for now
-} */
 
-.combo{
+.comboSeason{
    height: 250px;
+   margin-bottom: 35px;
+}
+
+.comboLifetime{
+   height: 275px;
+   margin-bottom: 40px;
 }
 
 #goldButton{
    background-color: gold;
+   height: 29px;
+}
+
+#otherButton{
+   background-color: dodgerblue;
+   height: 29px;
+}
+
+.buttons{
+   display: flex;
+   justify-content: space-evenly;
+   margin-bottom: 20px;
+}
+
+#refresh{
+   height: 29px;
+   float: right;
+   background-color: #00631cf5;
+   margin-right: 8px;
 }

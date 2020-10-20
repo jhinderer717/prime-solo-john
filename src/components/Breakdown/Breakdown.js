@@ -53,40 +53,24 @@ const Breakdown = (mapStoreToProps) => {
   return(
     <div>
       <h1>Breakdown</h1>
-      <section>
-        {/* {graphInterval === 5 && <h3>Last 5 Breakdown</h3>}
-        {graphInterval === 'season' && <h3>Current Season Breakdown</h3>}
-        {graphInterval === 'lifetime' && <h3>Lifetime Breakdown</h3>}
-        <br/> */}
-        
-
-        <h4>Change Interval
+        {/* <h4>Change Interval</h4> */}
+        <div className="buttons">
           {graphInterval === 5 ?
-            <Button variant="contained" id="goldButton">Last 5 Rounds</Button>
-            :
-            <Button variant="contained" onClick={() => initiate5Rounds()}>Last 5 Rounds</Button>}
-
+            <Button variant="contained" id="goldButton">Recent 5</Button>
+            : <Button variant="contained" id="otherButton" onClick={() => initiate5Rounds()}>Recent 5</Button>}
 
           {graphInterval === 'season' ?
-            <Button variant="contained" id="goldButton">Current Season</Button>
-            :
-            <Button variant="contained" onClick={() => initiateSeason()}>Current Season</Button>}
-
+            <Button variant="contained" id="goldButton">Season</Button>
+            :<Button variant="contained" id="otherButton" onClick={() => initiateSeason()}>Season</Button>}
 
           {graphInterval === 'lifetime' ?
             <Button variant="contained" id="goldButton">Lifetime</Button>
-            :
-            <Button variant="contained" onClick={() => initiateLifetime()}>Lifetime</Button>}
+            :<Button variant="contained" id="otherButton" onClick={() => initiateLifetime()}>Lifetime</Button>}
+        </div>
 
-          {/* <button onClick={() => initiateSeason()}>Current Season</button>
-          <button onClick={() => initiateLifetime()}>Lifetime</button> */}
-        </h4>
-      </section>
-      
       {graphInterval === 5 && <RecentScoreComp />}
       {graphInterval === 'season' && <SeasonComp />}
       {graphInterval === 'lifetime' && <LifetimeComp />}
-        
     </div>
   )
 }

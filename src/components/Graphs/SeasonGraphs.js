@@ -3,6 +3,7 @@ import {useState} from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Line } from 'react-chartjs-2';
+import { Button } from '@material-ui/core';
 
 
 const SeasonComp = (mapStoreToProps) => {
@@ -183,8 +184,8 @@ const SeasonComp = (mapStoreToProps) => {
    
   return(
     <div>
-      <button onClick={callAll}>Render Data</button>
-      <div className="combo">
+      <Button variant="contained" id="refresh" onClick={callAll}>Refresh Data</Button>
+      <div className="comboSeason">
         <Line data={comboData} options={{
           maintainAspectRatio: false,	// Don't maintain w/h ratio
           responsive: true,
@@ -200,20 +201,20 @@ const SeasonComp = (mapStoreToProps) => {
           },
           scales: {
             xAxes: [{
-                scaleLabel: {
-                  //display: true,
-                  // labelString: 'Date'
-                }
+              scaleLabel: {
+                //display: true,
+                // labelString: 'Date'
+              }
             }],
             yAxes: [{
-                stacked: true,
-                scaleLabel: {
-                  display: true,
-                  labelString: 'Handicap'
-                },
-                ticks: {
-                  suggestedMin: 0,
-                }
+              stacked: true,
+              scaleLabel: {
+                display: true,
+                labelString: 'Handicap'
+              },
+              ticks: {
+                suggestedMin: 0,
+              }
             }]
           }
         }}

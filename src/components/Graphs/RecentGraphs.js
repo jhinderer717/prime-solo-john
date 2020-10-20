@@ -3,6 +3,7 @@ import {useState} from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Line } from 'react-chartjs-2';
+import { Button } from '@material-ui/core';
 
 
 const RecentScoreComp = (mapStoreToProps) => {
@@ -19,6 +20,7 @@ const RecentScoreComp = (mapStoreToProps) => {
     let roundDate =[];
     rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
     const dateSplit = roundDate.map(round => round.split('-', 3)[1].concat('-', round.split('-', 3)[2]));
+    const roundDateRight = dateSplit.reverse();
 
     const turnRoundIntoPoints = (round) => {
 
@@ -58,23 +60,23 @@ const RecentScoreComp = (mapStoreToProps) => {
  
 
     setComboChartData({
-      labels: dateSplit,
+      labels: roundDateRight,
       datasets: [
         {
             label: 'Fairways',
-            data: roundFairwayTest,
+            data: roundFairwayTest.reverse(),
             backgroundColor: ["rgba(252, 181, 13, 6)"],
             borderWidth: 4
         },
         {
             label: 'Approach',
-            data: roundApproachTest,
+            data: roundApproachTest.reverse(),
             backgroundColor: ["rgba(20, 25, 199, 6)"],
             borderWidth: 4
         },
         {
             label: 'Putts',
-            data: roundPuttsTest,
+            data: roundPuttsTest.reverse(),
             backgroundColor: ["rgba(200, 80, 0, 6)"],
             borderWidth: 4
         },
@@ -194,7 +196,7 @@ const RecentScoreComp = (mapStoreToProps) => {
    
   return(
     <div>
-      <button onClick={callAll}>Render Data</button>
+      <Button variant="contained" id="refresh" onClick={callAll}>Refresh Data</Button>
       <Line data={comboData} options={{
           //maintainAspectRatio: false,	// Don't maintain w/h ratio
           responsive: true,
