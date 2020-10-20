@@ -65,8 +65,8 @@ const Breakdown = (mapStoreToProps) => {
       </section>
 
       {/* {graphInterval === 5 && <ComboGraph />} */}
-      {graphInterval === 'season' && <ComboSeasonGraph />}
-      {graphInterval === 'lifetime' && <ComboLifetimeGraph />}
+      {/* {graphInterval === 'season' && <ComboSeasonGraph />} */}
+      {/* {graphInterval === 'lifetime' && <ComboLifetimeGraph />} */}
       
       {graphInterval === 5 && <RecentScoreComp />}
       {graphInterval === 'season' && <SeasonComp />}
