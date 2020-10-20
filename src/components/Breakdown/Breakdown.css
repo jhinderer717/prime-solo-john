@@ -15,11 +15,13 @@ section{
 #goldButton{
    background-color: gold;
    height: 29px;
+   box-shadow: 5px 5px 5px grey;
 }
 
 #otherButton{
    background-color: dodgerblue;
    height: 29px;
+   box-shadow: 5px 5px 5px grey;
 }
 
 .buttons{
