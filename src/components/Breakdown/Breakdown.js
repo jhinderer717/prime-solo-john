@@ -33,7 +33,7 @@ const Breakdown = (mapStoreToProps) => {
   }
 
 
-  console.log('graphInterval:', graphInterval);
+  //console.log('graphInterval:', graphInterval);
 
 
   useEffect(() => {
