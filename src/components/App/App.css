@@ -74,6 +74,7 @@ Button
   font: inherit;
   /* color: #444; */
   color: black;
+  text-shadow: 9px 10px 5px black;
 }
 
 .btn_asLink:hover {
@@ -112,9 +113,24 @@ Form Treatment
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4); */
 }
 
+.loginPage{
+  background-image: url("../CO_golf.jpg");
+  margin-top: -30px;
+  height: -webkit-fill-available;
+  background-size: cover;
+}
+
+.appDiv{
+  height: inherit;
+}
+
+#login{
+  text-shadow: 9px 10px 5px black;
+}
+
 input {
   margin: 5px;
   margin-bottom: 10px;
-  box-shadow: 9px 10px 5px grey;
+  box-shadow: 9px 10px 5px black;
   border: outset;
 }

@@ -29,14 +29,14 @@ class RegisterForm extends Component {
   render() {
     return (
       <form className="formPanel" onSubmit={this.registerUser}>
-        <h2>Register User</h2>
+        <h2 id="login">Register User</h2>
         {this.props.store.errors.registrationMessage && (
           <h3 className="alert" role="alert">
             {this.props.store.errors.registrationMessage}
           </h3>
         )}
         <div>
-          <label htmlFor="username">
+          <label id="login" htmlFor="username">
             Username:
             <input
               type="text"
@@ -48,7 +48,7 @@ class RegisterForm extends Component {
           </label>
         </div>
         <div>
-          <label htmlFor="password">
+          <label id="login" htmlFor="password">
             Password:
             <input
               type="password"
