@@ -7,7 +7,7 @@ const LogOutButton = (props) => (
     // because it's styled differently depending on where it is used, the className
     // is passed to it from it's parents through React props
     className={props.className}
-    onClick={() => props.dispatch({ type: 'LOGOUT' })}
+    onClick={() => {  if (window.confirm('Are you sure you want to log out?')) props.dispatch({ type: 'LOGOUT' })}}
   >
     Log Out
   </button>
