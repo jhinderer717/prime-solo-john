@@ -8,3 +8,7 @@ section{
 .combo{
    height: 250px;
 }
+
+#goldButton{
+   background-color: gold;
+}

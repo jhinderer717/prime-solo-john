@@ -3,12 +3,10 @@ import {useState} from 'react';
 import { connect } from 'react-redux';
 import './Breakdown.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import ComboGraph from '../Graphs/ComboGraph';
-import ComboSeasonGraph from '../Graphs/ComboSeason';
-import ComboLifetimeGraph from '../Graphs/ComboLifetime';
 import RecentScoreComp from '../Graphs/RecentGraphs';
 import SeasonComp from '../Graphs/SeasonGraphs';
 import LifetimeComp from '../Graphs/LifetimeGraphs';
+import { Button } from '@material-ui/core';
 
 
 const today = Date();
@@ -56,17 +54,34 @@ const Breakdown = (mapStoreToProps) => {
     <div>
       <h1>Breakdown</h1>
       <section>
-        <h3>Last 5 rounds</h3>
+        {/* {graphInterval === 5 && <h3>Last 5 Breakdown</h3>}
+        {graphInterval === 'season' && <h3>Current Season Breakdown</h3>}
+        {graphInterval === 'lifetime' && <h3>Lifetime Breakdown</h3>}
+        <br/> */}
+        
+
         <h4>Change Interval
-          <p><button onClick={() => initiate5Rounds()}>Last 5 Rounds</button></p>
-          <p><button onClick={() => initiateSeason()}>Current Season</button></p>
-          <p><button onClick={() => initiateLifetime()}>Lifetime</button></p>
+          {graphInterval === 5 ?
+            <Button variant="contained" id="goldButton">Last 5 Rounds</Button>
+            :
+            <Button variant="contained" onClick={() => initiate5Rounds()}>Last 5 Rounds</Button>}
+
+
+          {graphInterval === 'season' ?
+            <Button variant="contained" id="goldButton">Current Season</Button>
+            :
+            <Button variant="contained" onClick={() => initiateSeason()}>Current Season</Button>}
+
+
+          {graphInterval === 'lifetime' ?
+            <Button variant="contained" id="goldButton">Lifetime</Button>
+            :
+            <Button variant="contained" onClick={() => initiateLifetime()}>Lifetime</Button>}
+
+          {/* <button onClick={() => initiateSeason()}>Current Season</button>
+          <button onClick={() => initiateLifetime()}>Lifetime</button> */}
         </h4>
       </section>
-
-      {/* {graphInterval === 5 && <ComboGraph />} */}
-      {/* {graphInterval === 'season' && <ComboSeasonGraph />} */}
-      {/* {graphInterval === 'lifetime' && <ComboLifetimeGraph />} */}
       
       {graphInterval === 5 && <RecentScoreComp />}
       {graphInterval === 'season' && <SeasonComp />}
