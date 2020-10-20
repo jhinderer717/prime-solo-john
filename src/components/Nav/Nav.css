@@ -8,6 +8,7 @@
   padding-left: 10px;
   /* -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: black; */
+  text-shadow: none;
 }
 
 .nav {
