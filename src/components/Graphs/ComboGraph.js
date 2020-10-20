@@ -1,5 +1,5 @@
 import './ComboGraph.css';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Line } from 'react-chartjs-2';
 
