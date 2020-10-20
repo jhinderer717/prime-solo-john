@@ -16,6 +16,7 @@ const ComboSeasonGraph = (mapStoreToProps) => { // this.props becomes mapStoreTo
       const rounds = mapStoreToProps.store.seasonRoundReducer;
       let roundDate =[];
       rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
+      const dateSplit = roundDate.map(round => round.split('-', 3)[1].concat('-', round.split('-', 3)[2]));
 
       const turnRoundIntoPoints = (round) => {
  
@@ -49,13 +50,13 @@ const ComboSeasonGraph = (mapStoreToProps) => { // this.props becomes mapStoreTo
       rounds.map(round => roundPuttsTest.push(turnRoundIntoPoints(round)[0]));
       rounds.map(round => roundApproachTest.push(turnRoundIntoPoints(round)[1]));
       rounds.map(round => roundFairwayTest.push(turnRoundIntoPoints(round)[2]));
-      console.log('roundPuttsTest:', roundPuttsTest);             // I can only get getturnRoundIntoPoints
-      console.log('roundPuttsTest:', roundApproachTest);          // to work if it is called within .map
-      console.log('roundPuttsTest:', roundFairwayTest);
+      //console.log('roundPuttsTest:', roundPuttsTest);             // I can only get getturnRoundIntoPoints
+      //console.log('roundPuttsTest:', roundApproachTest);          // to work if it is called within .map
+      //console.log('roundPuttsTest:', roundFairwayTest);
    
 
       setScoreChartData({
-         labels: roundDate,
+         labels: dateSplit,
          datasets: [
             {
                label: 'Fairways',

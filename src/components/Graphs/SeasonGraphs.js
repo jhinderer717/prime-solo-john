@@ -17,9 +17,10 @@ const SeasonComp = (mapStoreToProps) => {
       let roundDate =[];
       rounds.map(round => roundScore.push(round.score_to_par));
       rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
+      const dateSplit = roundDate.map(round => round.split('-', 3)[1].concat('-', round.split('-', 3)[2]));
 
       setScoreChartData({
-      labels: roundDate,
+      labels: dateSplit,
       datasets: [
          {
             label: 'Strokes Over Par (adjusted to 18 holes) by Round',
@@ -37,9 +38,10 @@ const SeasonComp = (mapStoreToProps) => {
       let roundDate =[];
       rounds.map(round => putts.push(round.putts / round.number_holes));
       rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
+      const dateSplit = roundDate.map(round => round.split('-', 3)[1].concat('-', round.split('-', 3)[2]));
 
       setPuttChartData({
-      labels: roundDate,
+      labels: dateSplit,
       datasets: [
          {
             label: 'Putts per Hole by Round',
@@ -57,9 +59,10 @@ const SeasonComp = (mapStoreToProps) => {
       let roundDate =[];
       rounds.map(round => roundApproach.push(round.approach_shots / round.number_holes));
       rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
+      const dateSplit = roundDate.map(round => round.split('-', 3)[1].concat('-', round.split('-', 3)[2]));
 
       setApproachChartData({
-      labels: roundDate,
+      labels: dateSplit,
       datasets: [
          {
             label: 'Average Extra Approach Shots per Hole by Round',
@@ -77,9 +80,10 @@ const SeasonComp = (mapStoreToProps) => {
       let roundDate =[];
       rounds.map(round => roundFairway.push(round.fairways_hit / round.possible_fairways));
       rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
+      const dateSplit = roundDate.map(round => round.split('-', 3)[1].concat('-', round.split('-', 3)[2]));
 
       setfairwayChartData({
-      labels: roundDate,
+      labels: dateSplit,
       datasets: [
          {
             label: 'Fairway Hit Ratio off the Tee by Round',

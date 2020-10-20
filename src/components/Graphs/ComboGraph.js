@@ -10,15 +10,14 @@ import { Line } from 'react-chartjs-2';
 const ComboGraph = (props) => { // this.props becomes mapStoreToProps. Changed to declare props at bottom, this.props becomes props
    const [chartData, setScoreChartData] = useState({});             // Doesn't solve the problem
 
-   console.log('props:', props);
-
 
    const scoreChart = () => {
-
 
       const rounds = props.rounds;
       let roundDate =[];
       rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
+      const dateSplit = roundDate.map(round => round.split('-', 3)[1].concat('-', round.split('-', 3)[2]));
+      //console.log('dateSplit', dateSplit);
 
       const turnRoundIntoPoints = (round) => {
  
@@ -59,13 +58,13 @@ const ComboGraph = (props) => { // this.props becomes mapStoreToProps. Changed t
       const roundPutt = roundPuttsTest.reverse();
       const roundApproach = roundApproachTest.reverse();
       const roundFairway = roundFairwayTest.reverse();
-      const rightDate = roundDate.reverse();
+      const rightDate = dateSplit.reverse();
       //console.log('roundPutt:', roundPutt);
       //console.log('props.rounds', props.rounds);
       // the delayed function makes this ^ log again and mapStoreToProps.store.roundReducer shows empty even though right
       // above that in the console from the logger roundReducer is full of the last 5 rounds data
       // It seems it's the importing of mapStoreToProps that isn't working on the initial render, because the round data is
-      // in reduxState as shown by the logger
+      // in reduxState as shown by the logger. Changed prop source, still having same problem
 
       setScoreChartData({
          labels: rightDate,
@@ -101,9 +100,9 @@ const ComboGraph = (props) => { // this.props becomes mapStoreToProps. Changed t
    }                                                                 // the button works. The button has
    useEffect(() => {                                                 // onClick={scoreChart} without parenthesis,
       console.log('mounted');                                        // that's the only difference I can think of
-      props.dispatch({                                     // other than the onClick is in the return
-         type: 'GET_ROUNDS'
-      });
+      // props.dispatch({                                     // other than the onClick is in the return
+      //    type: 'GET_ROUNDS'
+      // });
       //    mapStoreToProps.dispatch({
       //    type: 'GET_SEASON_ROUNDS'
       // });
@@ -149,7 +148,6 @@ const ComboGraph = (props) => { // this.props becomes mapStoreToProps. Changed t
                }
             }}
             />
-
       </div>
    )
 }

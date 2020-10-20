@@ -17,8 +17,9 @@ const RecentScoreComp = (mapStoreToProps) => {
     let roundDate =[];
     rounds.map(round => roundScore.push(round.score_to_par));
     rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
+    const dateSplit = roundDate.map(round => round.split('-', 3)[1].concat('-', round.split('-', 3)[2]));
     const roundScoreRight = roundScore.reverse(); // the database gives the most recent 5 in descending
-    const roundDateRight = roundDate.reverse();   // order, must flip to graph in ascending order
+    const roundDateRight = dateSplit.reverse();   // order, must flip to graph in ascending order
 
     setScoreChartData({
       labels: roundDateRight,
@@ -39,8 +40,9 @@ const RecentScoreComp = (mapStoreToProps) => {
     let roundDate =[];
     rounds.map(round => putts.push(round.putts / round.number_holes));
     rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
+    const dateSplit = roundDate.map(round => round.split('-', 3)[1].concat('-', round.split('-', 3)[2]));
     const roundPutts = putts.reverse();
-    const roundDateRight = roundDate.reverse();
+    const roundDateRight = dateSplit.reverse();
 
     setPuttChartData({
       labels: roundDateRight,
@@ -61,8 +63,9 @@ const RecentScoreComp = (mapStoreToProps) => {
     let roundDate =[];
     rounds.map(round => roundApproach.push(round.approach_shots / round.number_holes));
     rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
+    const dateSplit = roundDate.map(round => round.split('-', 3)[1].concat('-', round.split('-', 3)[2]));
     const roundApproachRight = roundApproach.reverse();
-    const roundDateRight = roundDate.reverse();
+    const roundDateRight = dateSplit.reverse();
 
     setApproachChartData({
       labels: roundDateRight,
@@ -83,8 +86,9 @@ const RecentScoreComp = (mapStoreToProps) => {
     let roundDate =[];
     rounds.map(round => roundFairway.push(round.fairways_hit / round.possible_fairways));
     rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
+    const dateSplit = roundDate.map(round => round.split('-', 3)[1].concat('-', round.split('-', 3)[2]));
     const roundFairwayRight = roundFairway.reverse();
-    const roundDateRight = roundDate.reverse();
+    const roundDateRight = dateSplit.reverse();
 
     setfairwayChartData({
       labels: roundDateRight,

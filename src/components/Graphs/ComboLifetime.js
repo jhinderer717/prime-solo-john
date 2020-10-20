@@ -49,9 +49,9 @@ const ComboLifetimeGraph = (mapStoreToProps) => { // this.props becomes mapStore
       rounds.map(round => roundPuttsTest.push(turnRoundIntoPoints(round)[0]));
       rounds.map(round => roundApproachTest.push(turnRoundIntoPoints(round)[1]));
       rounds.map(round => roundFairwayTest.push(turnRoundIntoPoints(round)[2]));
-      console.log('roundPuttsTest:', roundPuttsTest);             // I can only get getturnRoundIntoPoints
-      console.log('roundPuttsTest:', roundApproachTest);          // to work if it is called within .map
-      console.log('roundPuttsTest:', roundFairwayTest);
+      //console.log('roundPuttsTest:', roundPuttsTest);             // I can only get getturnRoundIntoPoints
+      //console.log('roundPuttsTest:', roundApproachTest);          // to work if it is called within .map
+      //console.log('roundPuttsTest:', roundFairwayTest);
    
 
       setScoreChartData({
