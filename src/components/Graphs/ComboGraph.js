@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { Line } from 'react-chartjs-2';
 
 
-
 const ComboGraph = (props) => {
    const rounds = props.rounds;
    let roundDate =[];
