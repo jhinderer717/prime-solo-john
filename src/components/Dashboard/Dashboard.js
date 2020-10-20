@@ -26,11 +26,10 @@ const Dashboard = (mapStoreToProps) => { // this.props becomes mapStoreToProps
       <h2 id="welcome">Welcome, {mapStoreToProps.store.user.username}!</h2>
       {/* <p>Your ID is: {mapStoreToProps.store.user.id}</p> */}
       <p>Last 5 Rounds:</p>
-      <br/>
-
+      {/* <br/> */}
 
       <ComboGraph />
-      <LogOutButton className="log-in" />
+      {/* <LogOutButton className="log-in" /> */}
     </div>
   )
 }

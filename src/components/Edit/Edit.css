@@ -25,12 +25,25 @@ th{
    height: 29px;
 }
 
+.editForm{
+   margin-top: 35px;
+}
+
+.editActionButtons{
+   display: flex;
+   justify-content: center;
+   margin-top: 35px;
+   margin-bottom: 35px;
+   height: 29px;
+}
+
 #editBtn{
    background-color: dodgerblue;
    box-shadow: 9px 10px 5px grey;
    margin-right: 2px;
 }
 #deleteBtn{
+   background-color: crimson;
    box-shadow: 9px 10px 5px grey;
    color: black;
 }
@@ -65,4 +78,36 @@ th{
 
 .fairwaysCell, .possibleCell{
    background-color: rgba(252, 181, 13);
+}
+
+#dateInput{
+   /* this styling is done in AddRound.css */
+}
+
+span{
+   text-shadow: 9px 10px 5px grey;
+}
+
+#minusButton{
+   background-color: black;
+   color: gold;
+   border-radius: 5px;
+   height: 30px;
+   width: 30px;
+   box-shadow: 9px 10px 5px grey;
+   margin: 5px;
+}
+
+#plusButton{
+   background-color: black;
+   color: gold;
+   border-radius: 5px;
+   height: 30px;
+   width: 30px;
+   box-shadow: 9px 10px 5px grey;
+   margin: 5px;
+}
+
+.editLine{
+   /* margin-bottom: 10px; */
 }

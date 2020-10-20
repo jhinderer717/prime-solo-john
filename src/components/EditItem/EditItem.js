@@ -97,61 +97,62 @@ class EditItem extends Component {
       <>
         {this.state.edit ?
           <>
-            <h3>editing!</h3>
-            <form>
+            {/* <h3>editing!</h3> */}
+            <form className="editForm">
               <span>Date Played:</span>
-              <input placeholder={this.state.date} onChange={(event) => this.handleDateChange(event)} />
+              <input placeholder={this.state.date} id="dateInput" onChange={(event) => this.handleDateChange(event)} />
 
-              <div>
+              <div className="editLine">
                 <span>Holes Played:</span>
-                <button onClick={() => this.setState({ ...this.state, number_holes: (this.state.number_holes - 1) })}>-</button>
-                <span>{this.state.number_holes}</span>
-                <button onClick={() => this.setState({ ...this.state, number_holes: (this.state.number_holes + 1) })}>+</button>
+                <button id="minusButton" onClick={() => this.setState({ ...this.state, number_holes: (this.state.number_holes - 1) })}>-</button>
+                <span><b>{this.state.number_holes}</b></span>
+                <button id="plusButton" onClick={() => this.setState({ ...this.state, number_holes: (this.state.number_holes + 1) })}>+</button>
               </div>
 
 
-              <div>
+              <div className="editLine">
                 <span>Strokes Over Par:</span>
-                <button onClick={() => this.setState({ ...this.state, score_to_par: (this.state.score_to_par - 1) })}>-</button>
-                <span>{this.state.score_to_par}</span>
-                <button onClick={() => this.setState({ ...this.state, score_to_par: (this.state.score_to_par + 1) })}>+</button>
+                <button id="minusButton" onClick={() => this.setState({ ...this.state, score_to_par: (this.state.score_to_par - 1) })}>-</button>
+                <span><b>{this.state.score_to_par}</b></span>
+                <button id="plusButton" onClick={() => this.setState({ ...this.state, score_to_par: (this.state.score_to_par + 1) })}>+</button>
               </div>
 
 
-              <div>
+              <div className="editLine">
                 <span>Putts:</span>
-                <button onClick={() => this.setState({ ...this.state, putts: (this.state.putts - 1) })}>-</button>
-                <span>{this.state.putts}</span>
-                <button onClick={() => this.setState({ ...this.state, putts: (this.state.putts + 1) })}>+</button>
+                <button id="minusButton" onClick={() => this.setState({ ...this.state, putts: (this.state.putts - 1) })}>-</button>
+                <span><b>{this.state.putts}</b></span>
+                <button id="plusButton" onClick={() => this.setState({ ...this.state, putts: (this.state.putts + 1) })}>+</button>
               </div>
 
 
-              <div>
+              <div className="editLine">
                 <span>Approach Shots:</span>
-                <button onClick={() => this.setState({ ...this.state, approach_shots: (this.state.approach_shots - 1) })}>-</button>
-                <span>{this.state.approach_shots}</span>
-                <button onClick={() => this.setState({ ...this.state, approach_shots: (this.state.approach_shots + 1) })}>+</button>
+                <button id="minusButton" onClick={() => this.setState({ ...this.state, approach_shots: (this.state.approach_shots - 1) })}>-</button>
+                <span><b>{this.state.approach_shots}</b></span>
+                <button id="plusButton" onClick={() => this.setState({ ...this.state, approach_shots: (this.state.approach_shots + 1) })}>+</button>
               </div>
 
 
-              <div>
+              <div className="editLine">
                 <span>Fairways Hit:</span>
-                <button onClick={() => this.setState({ ...this.state, fairways_hit: (this.state.fairways_hit - 1) })}>-</button>
-                <span>{this.state.fairways_hit}</span>
-                <button onClick={() => this.setState({ ...this.state, fairways_hit: (this.state.fairways_hit + 1) })}>+</button>
+                <button id="minusButton" onClick={() => this.setState({ ...this.state, fairways_hit: (this.state.fairways_hit - 1) })}>-</button>
+                <span><b>{this.state.fairways_hit}</b></span>
+                <button id="plusButton" onClick={() => this.setState({ ...this.state, fairways_hit: (this.state.fairways_hit + 1) })}>+</button>
               </div>
 
 
-              <div>
+              <div className="editLine">
                 <span>Possible Fairways:</span>
-                <button onClick={() => this.setState({ ...this.state, possible_fairways: (this.state.possible_fairways - 1) })}>-</button>
-                <span>{this.state.possible_fairways}</span>
-                <button onClick={() => this.setState({ ...this.state, possible_fairways: (this.state.possible_fairways + 1) })}>+</button>
+                <button id="minusButton" onClick={() => this.setState({ ...this.state, possible_fairways: (this.state.possible_fairways - 1) })}>-</button>
+                <span><b>{this.state.possible_fairways}</b></span>
+                <button id="plusButton" onClick={() => this.setState({ ...this.state, possible_fairways: (this.state.possible_fairways + 1) })}>+</button>
               </div>
 
-
-              <button onClick={this.checkDateFormat}>Confirm</button>
-              <button onClick={() => this.setState({...this.state, edit: false})}>Cancel</button>
+              <div className="editActionButtons">
+                <Button variant="contained" id="editBtn" onClick={this.checkDateFormat}>Confirm</Button>
+                <Button variant="contained" id="deleteBtn" onClick={this.componentDidMount}>Cancel</Button>
+              </div>
             </form>
           </>
           :
@@ -175,7 +176,7 @@ class EditItem extends Component {
           
             <div className="button">
               <Button variant="contained" id="editBtn" onClick={() => this.editItem(this.props.round.id)}>Edit</Button>
-              <Button variant="contained" id="deleteBtn" color="secondary" className="deleteBtn" 
+              <Button variant="contained" id="deleteBtn" 
                 onClick={() => { if (window.confirm('Are you sure you wish to delete this round?')) 
                 this.removeItem(this.props.round.id)}}>Delete</Button>
             </div>

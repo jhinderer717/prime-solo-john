@@ -7,48 +7,48 @@ h1{
 }
 
 label{
-   text-shadow: 5px 5px 5px grey;
+   text-shadow: 9px 10px 5px grey;
 }
 
 #dateInput{
    width: 69px;
-   box-shadow: 5px 5px 5px grey;
+   box-shadow: 9px 10px 5px grey;
    border: outset;
 }
 
 #holesInput{
    width: 16px;
-   box-shadow: 5px 5px 5px grey;
+   box-shadow: 9px 10px 5px grey;
    border: outset;
 }
 
 #scoreInput{
    width: 150px;
-   box-shadow: 5px 5px 5px grey;
+   box-shadow: 9px 10px 5px grey;
    border: outset;
 }
 
 #puttsInput{
    width: 63px;
-   box-shadow: 5px 5px 5px grey;
+   box-shadow: 9px 10px 5px grey;
    border: outset;
 }
 
 #approachInput{
    width: 162px;
-   box-shadow: 5px 5px 5px grey;
+   box-shadow: 9px 10px 5px grey;
    border: outset;
 }
 
 #fairwayInput{
    width: 124px;
-   box-shadow: 5px 5px 5px grey;
+   box-shadow: 9px 10px 5px grey;
    border: outset;
 }
 
 #possibleInput{
    width: 140px;
-   box-shadow: 5px 5px 5px grey;
+   box-shadow: 9px 10px 5px grey;
    border: outset;
 }
 
@@ -56,19 +56,19 @@ label{
    background-color: dodgerblue;
    margin-right: 2px;
    height: 29px;
-   box-shadow: 5px 5px 5px grey;
+   box-shadow: 9px 10px 5px grey;
 }
 
 #clearBtn{
    background-color: mediumorchid;
    margin-right: 2px;
    height: 29px;
-   box-shadow: 5px 5px 5px grey;
+   box-shadow: 9px 10px 5px grey;
 }
 
 #cancelBtn{
    margin-right: 2px;
    height: 29px;
    color: black;
-   box-shadow: 5px 5px 5px grey;
+   box-shadow: 9px 10px 5px grey;
 }
