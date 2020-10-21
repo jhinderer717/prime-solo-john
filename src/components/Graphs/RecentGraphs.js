@@ -124,14 +124,14 @@ const RecentScoreComp = (mapStoreToProps) => {
   })
 
   let roundFairway = [];
-  rounds.map(round => roundFairway.push(round.fairways_hit / round.possible_fairways));
+  rounds.map(round => roundFairway.push(100 * round.fairways_hit / round.possible_fairways));
   const roundFairwayRight = roundFairway.reverse();
 
   const fairwayChartData = ({
     labels: roundDateRight,
     datasets: [
       {
-        label: 'Fairway Hit Ratio off the Tee by Round',
+        label: 'Fairway Accuracy off the Tee by Round',
         data: roundFairwayRight,
         backgroundColor: ["rgba(252, 181, 13, 6)"],
         borderWidth: 4
@@ -225,11 +225,11 @@ const RecentScoreComp = (mapStoreToProps) => {
           yAxes: [{
             scaleLabel: {
               display: true,
-              labelString: "Ratio",
+              labelString: "Percent",
             },
             ticks: {
               suggestedMin: 0,
-              suggestedMax: 1,
+              suggestedMax: 100,
             }
           }]
         }
