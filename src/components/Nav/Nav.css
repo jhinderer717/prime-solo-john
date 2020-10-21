@@ -13,9 +13,9 @@
 }
 
 .nav {
-  margin: 0 0 -7px;
-  /* background-color:#00631cf5; */
-  background-color:#002b0bf5;
+  margin: 0 -2px -7px;
+  /* background-color:#002b0bf5; */
+  background-color:black;
   position: fixed;
   bottom: 0px;
   width: 100%;
@@ -61,4 +61,5 @@
 #hamburgerButton{
   float: right;
   padding: 7px;
+  color: whitesmoke;
 }

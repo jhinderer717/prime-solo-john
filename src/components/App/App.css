@@ -3,7 +3,7 @@ body,
 #react-root {
   height: 100%;
   /* background-image: url("../CO_golf.jpg"); */
-  background-color: lightblue;
+  background-color: wheat;
   background-size: cover;
   /* opacity: 0.5; */
 }
@@ -126,6 +126,7 @@ Form Treatment
 
 .appDiv{
   height: inherit;
+  margin: 2px;
 }
 
 #login{
