@@ -139,19 +139,23 @@ const ComboGraph = (props) => {
    }
    const eightAverage = (list) => {
       let total = 0;
+      let numbers = 0;
       for (let i=0; i<list.length; i++){
-         total = total + list[i];
+         if(list[i] !== undefined){
+            total = total + list[i];
+            numbers ++;
+         }
       }
-      return total / 8;
+      return total / numbers;
    }
    const twentyTest = getTwenty(lastScores);
-   console.log('twentyTest', twentyTest);
    const sortTest = sortBestToWorst(twentyTest);
-   console.log('sortTest', sortTest);
    const eightTest = returnEight(sortTest);
-   console.log('eightTest', eightTest);
-   const avg8 = eightAverage(eightTest);
-   console.log('avg8', avg8);
+   var avg8 = eightAverage(eightTest);
+   //console.log('avg8', avg8);
+   if(lastScores.length === 0){
+      avg8 = 'noScores'
+   }
 
 
 
@@ -187,7 +191,10 @@ const ComboGraph = (props) => {
    return(
       <div className="comboGraphDiv">
 
-         
+         {avg8 !== 'noScores' && 
+            <p>Your handicap is {Math.round(avg8)}</p>}
+         {avg8 !== 'noScores' || 
+            <p>Enter scores to see your handicap.</p>}
 
          <Line id="lineGraph" data={scoreChartData} options={{
             responsive: true,

@@ -260,21 +260,24 @@ const LifetimeComp = (mapStoreToProps) => {
                }]
             }
          }} />
-         <Line data={fairwayChartData} options={{
-            responsive: true,
-            scales: {
-               yAxes: [{
-                  scaleLabel: {
-                     display: true,
-                     labelString: "Ratio",
-                  },
-                  ticks: {
-                    suggestedMin: 0,
-                    suggestedMax: 1,
-                  }
-               }]
-            }
-         }} />
+         <div className="fairwayChart">
+            <Line data={fairwayChartData} options={{
+               maintainAspectRatio: false,
+               responsive: true,
+               scales: {
+                  yAxes: [{
+                     scaleLabel: {
+                        display: true,
+                        labelString: "Ratio",
+                     },
+                     ticks: {
+                     suggestedMin: 0,
+                     suggestedMax: 1,
+                     }
+                  }]
+               }
+            }} />
+         </div>
       </div>
    )
 }

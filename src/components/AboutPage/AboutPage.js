@@ -6,8 +6,10 @@ import React from 'react';
 // or even care what the redux state is, so it doesn't need 'connect()'
 
 const AboutPage = () => (
-  <div className="container">
+  // <div className="container">
+  <div>
     <div className="about">
+      <h1>About</h1>
       <p>
         HandicApp is a cutting edge golf handicap tracker. With this application a golfer 
         is able to visualize what aspects of their golf game they should focus on to improve 
@@ -21,10 +23,10 @@ const AboutPage = () => (
         a player to green it with the first shot and two putt for par.
       </p>
       <p>
-        HandicApp requires seven inputs per round logged:
+        HandicApp requires seven stats per round:
       </p>
       <ul className="about">
-        <li className="about">Date</li>
+        <li className="about">Date round was played</li>
         <li>Number of holes played</li>
         <li>Strokes over (or under) par</li>
         <li>Total putts</li>
@@ -42,17 +44,26 @@ const AboutPage = () => (
       </p>
       <p>
         For the purpose of this app, driving the green should be counted as a fairway hit. 
-        Putting from off the green should not be counted as a putt if the user doesn't consider
-        it a green hit before putting. If the ball is on the fringe of the green, it's the user's
-        discretion whether to count it as a green hit. If it's not a green hit, the next shot
-        should be counted as another approach shot and not a putt. If it is counted as a green
-        hit, the next shot counts as a putt.
+        Putting from off the green should not be counted as a putt. If the ball is on the fringe
+        of the green, it's the user's discretion whether to count it as a green hit. If it's not
+        a green hit, the next shot should be counted as another approach shot and not a putt. If
+        it is counted as a green hit, the next shot counts as a putt.
       </p>
       {/* <p>
         Disclaimer: USGA give you a handicap index calculated by averaging the best 8 scores of
         the most recent 20 rounds with exception to a couple safeguards in unusual scoring circumstances.
         HandicApp averages your strokes over par over a specified interval.
       </p> */}
+      <p>
+        Handicap is calculated by taking your last 20 rounds and averaging the best 8. This app
+        will give you a handicap with 8 or less rounds logged which will be the average of those
+        rounds. With 9 - 20 rounds logged, the handicap is the average of the best 8 rounds.
+      </p>
+      <p>
+        This app adjusts any round entered to the 18 hole equivalent and uses that to compute
+        handicap. If a round is logged with 1 hole played at 1 under par, that has the same contribution
+        to handicap as an 18 hole round at 18 under par.
+      </p>
     </div>
   </div>
 );
