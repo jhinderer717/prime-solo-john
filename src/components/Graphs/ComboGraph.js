@@ -36,6 +36,8 @@ const ComboGraph = (props) => {
       return points;
    }
 
+   
+
    let roundPuttsTest = [];
    let roundApproachTest = [];
    let roundFairwayTest = [];
@@ -49,6 +51,34 @@ const ComboGraph = (props) => {
    const roundApproach = roundApproachTest.reverse();
    const roundFairway = roundFairwayTest.reverse();
    const rightDate = dateSplit.reverse();
+
+   //console.log('roundPutt:', roundPutt);
+   //console.log('rounds', rounds);
+
+   const roundScores = [];
+   rounds.map(round => roundScores.push(round.score_to_par * (18 / round.number_holes)));
+   const correctScores = roundScores.reverse();
+
+   const puttFraction = [];
+   const approachFraction = [];
+   const fairwayFraction = [];
+   correctScores.map((score, i) => puttFraction.push(roundPutt[i] / score));
+   correctScores.map((score, i) => approachFraction.push(roundApproach[i] / score));
+   correctScores.map((score, i) => fairwayFraction.push(roundFairway[i] / score));
+
+   const puttFractionAvg = (puttFraction[0] + puttFraction[1] + puttFraction[2] + puttFraction[3]+ puttFraction[4]) / 5;
+   const approachFractionAvg = (approachFraction[0] + approachFraction[1] + approachFraction[2] + approachFraction[3]+ approachFraction[4]) / 5;
+   const fairwayFractionAvg = (fairwayFraction[0] + fairwayFraction[1] + fairwayFraction[2] + fairwayFraction[3]+ fairwayFraction[4]) / 5;
+
+   var worstStat = '';
+
+   if(puttFractionAvg > approachFractionAvg && puttFractionAvg > fairwayFractionAvg){
+      worstStat = 'putt';
+   }else if(approachFractionAvg > puttFractionAvg && approachFractionAvg > fairwayFractionAvg){
+      worstStat = 'approach';
+   }else{
+      worstStat = 'fairway';
+   }
 
    const scoreChartData = ({
       labels: rightDate,
@@ -112,6 +142,15 @@ const ComboGraph = (props) => {
             }
          }}
          />
+
+         {worstStat === 'putt' &&
+            <p>Putting has been your greatest weakness in the last 5 rounds</p>}
+         {worstStat === 'approach' &&
+            <p>Getting to the green has been your greatest weakness in the last 5 rounds</p>}
+         {worstStat === 'fairway' &&
+            <p>Hitting the fairway off the tee has been your greatest weakness in the last 5 rounds</p>}
+
+
       </div>
    )
 }
