@@ -102,6 +102,61 @@ const ComboGraph = (props) => {
       }
    }
 
+
+
+   // ----------------- Handicap calculation -----------------
+   
+   const lastRounds = props.allRounds.reverse();
+   const lastScores = [];
+   lastRounds.map(round => lastScores.push(round.score_to_par * (18 / round.number_holes)));
+
+   const getTwenty = (list) => {
+      let lastTwenty = [];
+      for(let i=0; i<20; i++){
+         lastTwenty.push(list[i]);
+      }
+      return lastTwenty;
+   }
+   const sortBestToWorst = (list) => {
+      let temp = 0;
+      for(let i=list.length - 1; i>0; i--){
+         for(let j=0; j<i; j++){
+            if(list[j] > list[j+1]){
+               temp = list[j];
+               list[j] = list[j+1];
+               list[j+1] = temp;
+            }
+         }
+      }
+      return list;
+   }
+   const returnEight = (list) => {
+      let newList = [];
+      for(let i=0; i<8; i++){
+         newList.push(list[i]);
+      }
+      return newList;
+   }
+   const eightAverage = (list) => {
+      let total = 0;
+      for (let i=0; i<list.length; i++){
+         total = total + list[i];
+      }
+      return total / 8;
+   }
+   const twentyTest = getTwenty(lastScores);
+   console.log('twentyTest', twentyTest);
+   const sortTest = sortBestToWorst(twentyTest);
+   console.log('sortTest', sortTest);
+   const eightTest = returnEight(sortTest);
+   console.log('eightTest', eightTest);
+   const avg8 = eightAverage(eightTest);
+   console.log('avg8', avg8);
+
+
+
+
+
    const scoreChartData = ({
       labels: rightDate,
       datasets: [
@@ -131,6 +186,9 @@ const ComboGraph = (props) => {
    // }, []); // warning told me to remove --   , []);   -- caused error
    return(
       <div className="comboGraphDiv">
+
+         
+
          <Line id="lineGraph" data={scoreChartData} options={{
             responsive: true,
             title: {
@@ -164,7 +222,7 @@ const ComboGraph = (props) => {
             }
          }}
          />
-
+         <p><b>Trends:</b></p>
          {worstStat === 'putt' &&
             <p>Putting has been your weakness in the last 5 rounds</p>}
          {worstStat === 'approach' &&
@@ -186,6 +244,7 @@ const ComboGraph = (props) => {
 
 const mapStoreToProps = reduxState => ({
    rounds: reduxState.roundReducer,
+   allRounds: reduxState.allRoundReducer,
 });
 
 
