@@ -142,3 +142,7 @@ th{
 .editLine{
    /* margin-bottom: 10px; */
 }
+
+.editHeader{
+   text-shadow: 5px 5px 5px grey;
+}

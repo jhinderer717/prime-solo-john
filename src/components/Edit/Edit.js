@@ -24,7 +24,7 @@ class Edit extends Component {
   render() {
     return (
       <div className="editDiv">
-        <h1>Edit</h1>
+        <h1 className="editHeader">Edit</h1>
           {this.props.rounds.reverse().map(round => // reverse() because we want the most recent at the top
             <EditItem key={round.id}
               round={round}

@@ -44,3 +44,7 @@ section{
 .fairwayChart{
    height: 250px;
 }
+
+.breakdownHeader{
+   text-shadow: 5px 5px 5px grey;
+}

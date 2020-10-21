@@ -152,12 +152,9 @@ const ComboGraph = (props) => {
    const sortTest = sortBestToWorst(twentyTest);
    const eightTest = returnEight(sortTest);
    var avg8 = eightAverage(eightTest);
-   //console.log('avg8', avg8);
    if(lastScores.length === 0){
       avg8 = 'noScores'
    }
-
-
 
 
 
@@ -230,12 +227,6 @@ const ComboGraph = (props) => {
          }}
          />
          <p><b>Trends:</b></p>
-         {worstStat === 'putt' &&
-            <p>Putting has been your weakness in the last 5 rounds</p>}
-         {worstStat === 'approach' &&
-            <p>Getting to the green has been your weakness in the last 5 rounds</p>}
-         {worstStat === 'fairway' &&
-            <p>Hitting the fairway off the tee has been your weakness in the last 5 rounds</p>}
 
          {bestStat === 'putt' &&
             <p>Putting has been your strength recently</p>}
@@ -243,6 +234,13 @@ const ComboGraph = (props) => {
             <p>Getting to the green has been your strength recently</p>}
          {bestStat === 'fairway' &&
             <p>Hitting the fairway off the tee has been your strength recently</p>}
+            
+         {worstStat === 'putt' &&
+            <p>Putting has been your weakness in the last 5 rounds</p>}
+         {worstStat === 'approach' &&
+            <p>Getting to the green has been your weakness in the last 5 rounds</p>}
+         {worstStat === 'fairway' &&
+            <p>Hitting the fairway off the tee has been your weakness in the last 5 rounds</p>}
 
       </div>
    )

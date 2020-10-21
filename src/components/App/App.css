@@ -132,6 +132,10 @@ Form Treatment
   text-shadow: 9px 10px 5px black;
 }
 
+#loginHeader{
+  text-shadow: 9px 10px 5px darkslategrey;
+}
+
 input {
   margin: 5px;
   margin-bottom: 10px;

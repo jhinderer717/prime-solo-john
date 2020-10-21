@@ -107,7 +107,7 @@ class AddRound extends Component {
     console.log('state:', this.state);
     return (
       <div>
-        <h1>Submit New Round</h1>
+        <h1 className="submitHeader">Submit New Round</h1>
         <form>
           <label>Date Played:</label>
           <input placeholder="YYYY-MM-DD" id="dateInput"

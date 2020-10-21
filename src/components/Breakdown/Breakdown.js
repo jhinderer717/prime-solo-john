@@ -52,7 +52,7 @@ const Breakdown = (mapStoreToProps) => {
 
   return(
     <div>
-      <h1>Breakdown</h1>
+      <h1 className="breakdownHeader">Breakdown</h1>
         {/* <h4>Change Interval</h4> */}
         <div className="buttons">
           {graphInterval === 5 ?
