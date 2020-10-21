@@ -66,18 +66,40 @@ const ComboGraph = (props) => {
    correctScores.map((score, i) => approachFraction.push(roundApproach[i] / score));
    correctScores.map((score, i) => fairwayFraction.push(roundFairway[i] / score));
 
+   
+   // const puttMin =  Math.min(...puttFraction);
+   // const approachMin =  Math.min(...approachFraction);
+   // const fairwayMin =  Math.min(...fairwayFraction);
+   // console.log('mins:', puttMin, approachMin, fairwayMin);
+
    const puttFractionAvg = (puttFraction[0] + puttFraction[1] + puttFraction[2] + puttFraction[3]+ puttFraction[4]) / 5;
    const approachFractionAvg = (approachFraction[0] + approachFraction[1] + approachFraction[2] + approachFraction[3]+ approachFraction[4]) / 5;
    const fairwayFractionAvg = (fairwayFraction[0] + fairwayFraction[1] + fairwayFraction[2] + fairwayFraction[3]+ fairwayFraction[4]) / 5;
 
    var worstStat = '';
+   var bestStat = '';
 
    if(puttFractionAvg > approachFractionAvg && puttFractionAvg > fairwayFractionAvg){
       worstStat = 'putt';
+      if(approachFractionAvg > fairwayFractionAvg){
+         bestStat = 'fairway';
+      }else{
+         bestStat = 'approach';
+      }
    }else if(approachFractionAvg > puttFractionAvg && approachFractionAvg > fairwayFractionAvg){
       worstStat = 'approach';
+      if(puttFractionAvg > fairwayFractionAvg){
+         bestStat = 'fairway';
+      }else{
+         bestStat = 'putt';
+      }
    }else{
       worstStat = 'fairway';
+      if(puttFractionAvg > approachFractionAvg){
+         bestStat = 'approach';
+      }else{
+         bestStat = 'putt';
+      }
    }
 
    const scoreChartData = ({
@@ -144,12 +166,18 @@ const ComboGraph = (props) => {
          />
 
          {worstStat === 'putt' &&
-            <p>Putting has been your greatest weakness in the last 5 rounds</p>}
+            <p>Putting has been your weakness in the last 5 rounds</p>}
          {worstStat === 'approach' &&
-            <p>Getting to the green has been your greatest weakness in the last 5 rounds</p>}
+            <p>Getting to the green has been your weakness in the last 5 rounds</p>}
          {worstStat === 'fairway' &&
-            <p>Hitting the fairway off the tee has been your greatest weakness in the last 5 rounds</p>}
+            <p>Hitting the fairway off the tee has been your weakness in the last 5 rounds</p>}
 
+         {bestStat === 'putt' &&
+            <p>Putting has been your strength recently</p>}
+         {bestStat === 'approach' &&
+            <p>Getting to the green has been your strength recently</p>}
+         {bestStat === 'fairway' &&
+            <p>Hitting the fairway off the tee has been your strength recently</p>}
 
       </div>
    )
