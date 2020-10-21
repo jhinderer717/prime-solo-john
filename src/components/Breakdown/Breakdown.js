@@ -67,10 +67,12 @@ const Breakdown = (mapStoreToProps) => {
             <Button variant="contained" id="goldButton">Lifetime</Button>
             :<Button variant="contained" id="otherButton" onClick={() => initiateLifetime()}>Lifetime</Button>}
         </div>
-
-      {graphInterval === 5 && <RecentScoreComp />}
-      {graphInterval === 'season' && <SeasonComp />}
-      {graphInterval === 'lifetime' && <LifetimeComp />}
+        
+        <div className="graphsDiv">
+          {graphInterval === 5 && <RecentScoreComp />}
+          {graphInterval === 'season' && <SeasonComp />}
+          {graphInterval === 'lifetime' && <LifetimeComp />}
+        </div>
     </div>
   )
 }

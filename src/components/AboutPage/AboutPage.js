@@ -41,10 +41,18 @@ const AboutPage = () => (
         fairways to hit (all holes excluding par threes).
       </p>
       <p>
+        For the purpose of this app, driving the green should be counted as a fairway hit. 
+        Putting from off the green should not be counted as a putt if the user doesn't consider
+        it a green hit before putting. If the ball is on the fringe of the green, it's the user's
+        discretion whether to count it as a green hit. If it's not a green hit, the next shot
+        should be counted as another approach shot and not a putt. If it is counted as a green
+        hit, the next shot counts as a putt.
+      </p>
+      {/* <p>
         Disclaimer: USGA give you a handicap index calculated by averaging the best 8 scores of
         the most recent 20 rounds with exception to a couple safeguards in unusual scoring circumstances.
         HandicApp averages your strokes over par over a specified interval.
-      </p>
+      </p> */}
     </div>
   </div>
 );
