@@ -1,3 +1,7 @@
+.editDiv{
+   margin-bottom: 100px;
+}
+
 table{ 
    border-collapse: collapse; 
    /* width: 80%; */
@@ -41,12 +45,39 @@ th{
    background-color: dodgerblue;
    box-shadow: 9px 10px 5px grey;
    margin-right: 2px;
+   position: static;
 }
 #deleteBtn{
    background-color: crimson;
    box-shadow: 9px 10px 5px grey;
    color: black;
+   position: static;
 }
+
+/* .MuiButtonBase-root {
+   color: inherit;
+   border: 0;
+   cursor: pointer;
+   margin: 0;
+   display: inline-flex;
+   outline: 0;
+   padding: 0;
+    position: static;
+   align-items: center;
+   user-select: none;
+   border-radius: 0;
+   vertical-align: middle;
+   -moz-appearance: none;
+   justify-content: center;
+   text-decoration: none;
+   background-color: transparent;
+   -webkit-appearance: none;
+   -webkit-tap-highlight-color: transparent;
+} */
+
+
+
+
 
 #dateId{
    text-shadow: 5px 5px 5px grey;

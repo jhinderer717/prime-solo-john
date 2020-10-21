@@ -57,6 +57,7 @@ label{
    margin-right: 2px;
    height: 29px;
    box-shadow: 9px 10px 5px grey;
+   position: static;
 }
 
 #clearBtn{
@@ -64,6 +65,7 @@ label{
    margin-right: 2px;
    height: 29px;
    box-shadow: 9px 10px 5px grey;
+   position: static;
 }
 
 #cancelBtn{
@@ -71,4 +73,5 @@ label{
    height: 29px;
    color: black;
    box-shadow: 9px 10px 5px grey;
+   position: static;
 }
