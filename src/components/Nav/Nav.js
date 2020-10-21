@@ -58,20 +58,22 @@ const Nav = (props) => {
 
   return (
     <div className="nav">
-      <Link to="/home">
-        <h2 className="nav-title">HandicApp</h2>
-      </Link>
 
         <span className="hamburger-right"
           onClick={() => setShowMenu(!showMenu)}
         >
-          <FontAwesomeIcon 
+          {menu}
+          <FontAwesomeIcon id="hamburgerButton"
             icon={faBars}
             // onClick={() => setShowMenu(!showMenu)}
           />
         </span>
-        <br/>
-        {menu}
+        {/* <br/> */}
+        
+
+      <Link to="/home">
+        <h2 className="nav-title">HandicApp</h2>
+      </Link>
 
     </div>
   );

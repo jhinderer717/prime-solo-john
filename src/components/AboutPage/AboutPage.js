@@ -7,7 +7,7 @@ import React from 'react';
 
 const AboutPage = () => (
   <div className="container">
-    <div>
+    <div className="about">
       <p>
         HandicApp is a cutting edge golf handicap tracker. With this application a golfer 
         is able to visualize what aspects of their golf game they should focus on to improve 
@@ -23,8 +23,8 @@ const AboutPage = () => (
       <p>
         HandicApp requires seven inputs per round logged:
       </p>
-      <ul>
-        <li>Date</li>
+      <ul className="about">
+        <li className="about">Date</li>
         <li>Number of holes played</li>
         <li>Strokes over (or under) par</li>
         <li>Total putts</li>
