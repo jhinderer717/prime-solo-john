@@ -1,8 +1,17 @@
 #lineGraph{
-   /* box-shadow: 9px 10px 5px grey; */
-   /* height: 300px; */
+   box-shadow: 9px 10px 5px grey;
+   /* height: 30px; */
+   margin-bottom: 40px;
+   margin-top: 20px;
+   border: 1px solid black;
 }
 
 .comboGraphDiv{
    /* height: 600px; */
+}
+
+.trends{
+   margin: 5px;
+   margin-top: -14px;
+   margin-bottom: -14px;
 }

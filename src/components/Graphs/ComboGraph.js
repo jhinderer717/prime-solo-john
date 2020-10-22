@@ -2,6 +2,7 @@ import './ComboGraph.css';
 import React from 'react';
 import { connect } from 'react-redux';
 import { Line } from 'react-chartjs-2';
+import { Paper } from "@material-ui/core";
 
 
 const ComboGraph = (props) => {
@@ -193,7 +194,11 @@ const ComboGraph = (props) => {
          {avg8 !== 'noScores' || 
             <p>Enter scores to see your handicap.</p>}
 
+         <hr/>
+
+
          <Line id="lineGraph" data={scoreChartData} options={{
+            // maintainAspectRatio: false,
             responsive: true,
             title: {
                display: true,
@@ -226,21 +231,26 @@ const ComboGraph = (props) => {
             }
          }}
          />
-         <p><b>Trends:</b></p>
 
-         {bestStat === 'putt' &&
-            <p>Putting has been your strength recently</p>}
-         {bestStat === 'approach' &&
-            <p>Getting to the green has been your strength recently</p>}
-         {bestStat === 'fairway' &&
-            <p>Hitting the fairway off the tee has been your strength recently</p>}
-            
-         {worstStat === 'putt' &&
-            <p>Putting has been your weakness in the last 5 rounds</p>}
-         {worstStat === 'approach' &&
-            <p>Getting to the green has been your weakness in the last 5 rounds</p>}
-         {worstStat === 'fairway' &&
-            <p>Hitting the fairway off the tee has been your weakness in the last 5 rounds</p>}
+         <Paper variant="outlined">
+            <div className="trends">
+               <p><b>Trends:</b></p>
+
+               {bestStat === 'putt' &&
+                  <p>Putting has been your strength recently</p>}
+               {bestStat === 'approach' &&
+                  <p>Getting to the green has been your strength recently</p>}
+               {bestStat === 'fairway' &&
+                  <p>Hitting the fairway off the tee has been your strength recently</p>}
+                  
+               {worstStat === 'putt' &&
+                  <p>Putting has been your weakness in the last 5 rounds</p>}
+               {worstStat === 'approach' &&
+                  <p>Getting to the green has been your weakness in the last 5 rounds</p>}
+               {worstStat === 'fairway' &&
+                  <p>Hitting the fairway off the tee has been your weakness in the last 5 rounds</p>}
+            </div>
+         </Paper>
 
       </div>
    )

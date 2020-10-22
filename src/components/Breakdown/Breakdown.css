@@ -15,13 +15,11 @@ section{
 #goldButton{
    background-color: gold;
    height: 29px;
-   box-shadow: 9px 10px 5px grey;
 }
 
 #otherButton{
    background-color: dodgerblue;
    height: 29px;
-   box-shadow: 9px 10px 5px grey;
 }
 
 .buttons{
@@ -46,5 +44,9 @@ section{
 }
 
 .breakdownHeader{
-   text-shadow: 5px 5px 5px grey;
+   background-color: #00631cf5;
+   margin: -5px;
+   padding: 9px;
+   color: floralwhite;
+   margin-bottom: 18px;
 }

@@ -3,7 +3,11 @@ form{
 }
 
 .submitHeader{
-   text-shadow: 5px 5px 5px grey;
+   background-color: #00631cf5;
+   margin: -5px;
+   padding: 9px;
+   color: floralwhite;
+   margin-bottom: 18px;
 }
 
 label{
@@ -50,6 +54,7 @@ label{
    width: 140px;
    box-shadow: 9px 10px 5px grey;
    border: outset;
+   margin-bottom: 30px;
 }
 
 #submitBtn{

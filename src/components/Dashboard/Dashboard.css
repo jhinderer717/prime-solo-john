@@ -5,3 +5,10 @@
 .dashboard{
    /* text-shadow: 5px 5px 5px grey; */
 }
+
+.dashboardHeader{
+   background-color: #00631cf5;
+   margin: -5px;
+   padding: 9px;
+   color: floralwhite;
+}

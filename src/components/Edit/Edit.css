@@ -115,8 +115,13 @@ th{
    /* this styling is done in AddRound.css */
 }
 
+#editDateInput{
+   box-shadow: none;
+   width: 69px;
+}
+
 .editLabels{
-   text-shadow: 9px 10px 5px grey;
+   /* text-shadow: 9px 10px 5px grey; */
 }
 
 #minusButton{
@@ -125,7 +130,7 @@ th{
    border-radius: 5px;
    height: 30px;
    width: 30px;
-   box-shadow: 9px 10px 5px grey;
+   /* box-shadow: 9px 10px 5px grey; */
    margin: 5px;
 }
 
@@ -135,7 +140,7 @@ th{
    border-radius: 5px;
    height: 30px;
    width: 30px;
-   box-shadow: 9px 10px 5px grey;
+   /* box-shadow: 9px 10px 5px grey; */
    margin: 5px;
 }
 
@@ -144,5 +149,9 @@ th{
 }
 
 .editHeader{
-   text-shadow: 5px 5px 5px grey;
+   background-color: #00631cf5;
+   margin: -5px;
+   padding: 9px;
+   color: floralwhite;
+   margin-bottom: 18px;
 }

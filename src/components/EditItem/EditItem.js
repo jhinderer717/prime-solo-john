@@ -100,7 +100,7 @@ class EditItem extends Component {
             {/* <h3>editing!</h3> */}
             <form className="editForm">
               <span className="editLabels">Date Played:</span>
-              <input placeholder={this.state.date} id="dateInput" onChange={(event) => this.handleDateChange(event)} />
+              <input placeholder={this.state.date} id="editDateInput" onChange={(event) => this.handleDateChange(event)} />
 
               <div className="editLine">
                 <span className="editLabels">Holes Played:</span>

@@ -10,7 +10,7 @@ const AboutPage = () => (
   // <div className="container">
   <div>
     <div className="about">
-      <h1>About</h1>
+      <h1 className="aboutHeader">About</h1>
       <p>
         HandicApp is a cutting edge golf handicap tracker. With this application a golfer 
         is able to visualize what aspects of their golf game they should focus on to improve 
