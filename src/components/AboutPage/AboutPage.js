@@ -61,9 +61,9 @@ const AboutPage = () => (
         rounds. With 9 - 20 rounds logged, the handicap is the average of the best 8 rounds.
       </p>
       <p id="bottomParagraph">
-        This app adjusts any round entered to the 18 hole equivalent and uses that to compute
-        handicap. If a round is logged with 1 hole played at 1 under par, that has the same contribution
-        to handicap as an 18 hole round at 18 under par.
+        This app adjusts any round entered to the 18 hole equivalent and uses that to contribute
+        to the handicap. If a round is logged with 1 hole played at 1 under par, that has the same
+        contribution to handicap as an 18 hole round at 18 under par.
       </p>
     </div>
   </div>
