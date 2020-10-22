@@ -1,4 +1,5 @@
 import React from 'react';
+import './AboutPage.css';
 
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
@@ -59,7 +60,7 @@ const AboutPage = () => (
         will give you a handicap with 8 or less rounds logged which will be the average of those
         rounds. With 9 - 20 rounds logged, the handicap is the average of the best 8 rounds.
       </p>
-      <p>
+      <p id="bottomParagraph">
         This app adjusts any round entered to the 18 hole equivalent and uses that to compute
         handicap. If a round is logged with 1 hole played at 1 under par, that has the same contribution
         to handicap as an 18 hole round at 18 under par.
