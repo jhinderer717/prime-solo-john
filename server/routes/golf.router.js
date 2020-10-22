@@ -1,10 +1,13 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 // prime-solo-project has a template.router.js router template
 
 
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
   //console.log('golf.get hit, giving 5 latest rounds');
   const queryString = `SELECT * FROM "round" WHERE "user_id" = $1 ORDER BY "date" DESC LIMIT 5;`;
   pool.query(queryString, [req.user.id])
@@ -17,7 +20,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/season', (req, res) => {
+router.post('/season', rejectUnauthenticated, (req, res) => {
   //console.log('golf.season hit with req.body:', req.body);
   const queryString = `SELECT * FROM "round" WHERE "date" > $2 AND "user_id" = $1
 	                      ORDER BY "date" ASC;`;
@@ -31,7 +34,7 @@ router.post('/season', (req, res) => {
     });
 });
 
-router.get('/all', (req, res) => {
+router.get('/all', rejectUnauthenticated, (req, res) => {
   //console.log('golf.get all hit');
   const queryString = `SELECT * FROM "round" WHERE "user_id" = $1 ORDER BY "date" ASC;`;
   pool.query(queryString, [req.user.id])
@@ -45,7 +48,7 @@ router.get('/all', (req, res) => {
 });
 
 
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
   //console.log('golf.post hit');
   //console.log('req.body:', req.body, 'req.user:', req.user);
   const queryString = `INSERT INTO "round" ("date", "user_id", "number_holes", 
@@ -70,7 +73,7 @@ router.post('/', (req, res) => {
   });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
   // console.log('req.user:', req.user);
   //console.log('attempting to delete round with id:', req.params);
   const queryText = `DELETE FROM "round" WHERE "id" = $1;`;
@@ -82,7 +85,7 @@ router.delete('/:id', (req, res) => {
     });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', rejectUnauthenticated, (req, res) => {
   //console.log('router.put hit with req.params:', req.params);
   //console.log('router.put hit with req.body:', req.body);
   let queryText = `UPDATE "round"
