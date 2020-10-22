@@ -27,31 +27,31 @@ label{
 }
 
 #scoreInput{
-   width: 150px;
+   width: 155px;
    box-shadow: 9px 10px 5px grey;
    border: outset;
 }
 
 #puttsInput{
-   width: 63px;
+   width: 68px;
    box-shadow: 9px 10px 5px grey;
    border: outset;
 }
 
 #approachInput{
-   width: 162px;
+   width: 167px;
    box-shadow: 9px 10px 5px grey;
    border: outset;
 }
 
 #fairwayInput{
-   width: 124px;
+   width: 129px;
    box-shadow: 9px 10px 5px grey;
    border: outset;
 }
 
 #possibleInput{
-   width: 140px;
+   width: 145px;
    box-shadow: 9px 10px 5px grey;
    border: outset;
    margin-bottom: 30px;
