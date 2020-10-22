@@ -7,7 +7,17 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
+
 const Nav = (props) => {
+
+
+  // const constructor = () => {
+  //   //super()
+  //   this.navLinks = React.createRef();   Start of nav menu animation
+  // }
+
+
+
 
   const [showMenu, setShowMenu] = useState(false)
 
@@ -26,6 +36,7 @@ const Nav = (props) => {
   if(showMenu){
     menu = 
     <div className="nav-right"
+    // onClick={() => setShowMenu(!showMenu)}>    Start of nav menu animation
     onClick={() => setShowMenu(!showMenu)}>
       <Link className="nav-link top-button" to={loginLinkData.path}>
         {/* Show this link if they are logged in or not,
