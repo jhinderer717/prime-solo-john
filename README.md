@@ -8,6 +8,7 @@ This application tracks a users golf handicap. A user can view, add, edit, and d
 ## Screenshots
 
 ![screenshot](src/components/ScreenShot.png)
+![screenshot](src/components/ScreenShotSubmitW:Nav.png)
 
 ## Prerequisites
 
