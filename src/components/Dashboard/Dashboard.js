@@ -31,6 +31,7 @@ const Dashboard = (mapStoreToProps) => { // this.props becomes mapStoreToProps
   return(
     <div className="dashboardDiv">
       <h1 className="dashboardHeader">Dashboard</h1>
+      {/* <h1 className="dashboardHeader">Dashboard<img src={"../golfIcon.jpg"}/></h1> */}
       <h2 className="dashboard" id="welcome">Welcome, {mapStoreToProps.store.user.username}!</h2>
       {/* <p>Your ID is: {mapStoreToProps.store.user.id}</p> */}
       {/* <p>Last 5 Rounds:</p> */}
