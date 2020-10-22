@@ -30,7 +30,7 @@ class EditItem extends Component {
   }
 
   editItem = () => {
-    console.log('editing round');
+    //console.log('editing round');
     this.setState({
       edit: true,
     });
