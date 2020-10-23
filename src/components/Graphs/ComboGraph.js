@@ -67,7 +67,7 @@ const ComboGraph = (props) => {
    var approachFractionAvg = 0;
    var fairwayFractionAvg = 0;
    for(let i=0; i<puttFraction.length; i++){ puttFractionAvg += puttFraction[i]; }
-   for(let i=0; i<puttFraction.length; i++){ approachFractionAvg += approachFraction[i]; }
+   for(let i=0; i<approachFraction.length; i++){ approachFractionAvg += approachFraction[i]; }
    for(let i=0; i<fairwayFraction.length; i++){ fairwayFractionAvg += fairwayFraction[i]; }
    puttFractionAvg = puttFractionAvg / puttFraction.length;
    approachFractionAvg = approachFractionAvg / approachFraction.length;
@@ -76,7 +76,10 @@ const ComboGraph = (props) => {
    var worstStat = '';
    var bestStat = '';
 
-   if(puttFractionAvg > approachFractionAvg && puttFractionAvg > fairwayFractionAvg){
+   if(puttFraction.length === 0){
+      worstStat = 'none';
+      bestStat = 'none';
+   }else if(puttFractionAvg > approachFractionAvg && puttFractionAvg > fairwayFractionAvg){
       worstStat = 'putt';
       if(approachFractionAvg > fairwayFractionAvg){
          bestStat = 'fairway';
@@ -238,6 +241,8 @@ const ComboGraph = (props) => {
                   <p>Getting to the green has been your strength recently</p>}
                {bestStat === 'fairway' &&
                   <p>Hitting the fairway off the tee has been your strength recently</p>}
+               {bestStat === 'none' &&
+                  <p>Enter scores to see trends</p>}
                   
                {worstStat === 'putt' &&
                   <p>Putting has been your weakness in the last 5 rounds</p>}
@@ -245,6 +250,8 @@ const ComboGraph = (props) => {
                   <p>Getting to the green has been your weakness in the last 5 rounds</p>}
                {worstStat === 'fairway' &&
                   <p>Hitting the fairway off the tee has been your weakness in the last 5 rounds</p>}
+               {worstStat === 'none' &&
+                  <p></p>}
             </div>
          </Paper>
 
