@@ -20,7 +20,6 @@ const Dashboard = (mapStoreToProps) => { // this.props becomes mapStoreToProps
     mapStoreToProps.dispatch({
       type: 'GET_ALL_ROUNDS'
     });
-    timeFunction();
   }, []);
   return(
     <div className="dashboardDiv">
