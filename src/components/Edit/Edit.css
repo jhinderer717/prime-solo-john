@@ -42,7 +42,7 @@ th{
 }
 
 #editBtn{
-   background-color: dodgerblue;
+   /* background-color: dodgerblue; */
    box-shadow: 9px 10px 5px grey;
    margin-right: 2px;
    position: static;
