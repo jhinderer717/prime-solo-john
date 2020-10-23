@@ -18,7 +18,7 @@ const AboutPage = () => (
         their scores.
       </p>
       <p>
-        On a par four, a golfer is expected to hit the fairway on the drive, hit the green 
+        On a par four, a golfer is expected to hit the fairway with the drive, hit the green 
         with the next shot, and two putt for par. Missing the fairway, extra strokes to the 
         green, or more than two putts typically contribute to a score worse than par. On a 
         par five a golfer is expected to be on the green in three shots. A par three expects
