@@ -4,14 +4,13 @@ import {connect} from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import {withRouter} from 'react-router-dom';
 import { Button } from '@material-ui/core';
+import golfIcon from '../golfIcon.jpg';
 
 const today = Date();
 const todayString = today.split(" ");
 const today1 = new Date();
 const thisMonth = (today1.getMonth() + 1);
 let todayState = todayString[3].concat('-', thisMonth, '-', todayString[2]);
-// console.log('todayString:', todayString);
-// console.log('todayState:', todayState);
 
 
 class AddRound extends Component {
@@ -44,7 +43,6 @@ class AddRound extends Component {
     console.log('checkFields hit');
 
     const checkDate = this.state.date.split("-");
-    //console.log('checkDate:', checkDate);
     if(checkDate[1] > 12 || checkDate[1] < 1){
       alert('Invalid Month. Enter valid date YYYY-MM-DD');
       return;
@@ -107,7 +105,7 @@ class AddRound extends Component {
     console.log('state:', this.state);
     return (
       <div>
-        <h1 className="submitHeader">Submit New Round</h1>
+        <h1 className="submitHeader">Submit New Round <img className="golfIcon" src={golfIcon}/></h1>
         <form>
           <label>Date Played:</label>
           <input placeholder="YYYY-MM-DD" id="dateInput"

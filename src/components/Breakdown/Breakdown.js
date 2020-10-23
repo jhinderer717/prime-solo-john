@@ -7,6 +7,7 @@ import RecentScoreComp from '../Graphs/RecentGraphs';
 import SeasonComp from '../Graphs/SeasonGraphs';
 import LifetimeComp from '../Graphs/LifetimeGraphs';
 import { Button } from '@material-ui/core';
+import golfIcon from '../golfIcon.jpg';
 
 
 const today = Date();
@@ -33,8 +34,6 @@ const Breakdown = (mapStoreToProps) => {
   }
 
 
-  //console.log('graphInterval:', graphInterval);
-
 
   useEffect(() => {
     console.log('mounted');
@@ -52,8 +51,7 @@ const Breakdown = (mapStoreToProps) => {
 
   return(
     <div>
-      <h1 className="breakdownHeader">Breakdown</h1>
-        {/* <h4>Change Interval</h4> */}
+      <h1 className="breakdownHeader">Breakdown <img className="golfIcon" src={golfIcon}/></h1>
         <div className="buttons">
           {graphInterval === 5 ?
             <Button variant="contained" id="goldButton">Recent 5</Button>

@@ -1,5 +1,6 @@
 import React from 'react';
 import './AboutPage.css';
+import golfIcon from '../golfIcon.jpg';
 
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
@@ -7,10 +8,9 @@ import './AboutPage.css';
 // or even care what the redux state is, so it doesn't need 'connect()'
 
 const AboutPage = () => (
-  // <div className="container">
   <div>
     <div className="about">
-      <h1 className="aboutHeader">About</h1>
+      <h1 className="aboutHeader">About <img className="golfIcon" src={golfIcon}/></h1>
       <p>
         HandicApp is a cutting edge golf handicap tracker. With this application a golfer 
         is able to visualize what aspects of their golf game they should focus on to improve 

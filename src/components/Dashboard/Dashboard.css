@@ -1,14 +1,13 @@
-/* h2, p{
-   text-shadow: 9px 10px 5px grey;
-} */
-
-.dashboard{
-   /* text-shadow: 5px 5px 5px grey; */
-}
-
 .dashboardHeader{
    background-color: #00631cf5;
    margin: -5px;
    padding: 9px;
    color: floralwhite;
+}
+
+.golfIcon{
+   float: right;
+   height: 48px;
+   margin-right: -5px;
+   margin-top: -5px;
 }
