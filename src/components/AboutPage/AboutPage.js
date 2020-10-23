@@ -10,7 +10,8 @@ import golfIcon from '../golfIcon.jpg';
 const AboutPage = () => (
   <div>
     <div className="about">
-      <h1 className="aboutHeader">About <img className="golfIcon" src={golfIcon}/></h1>
+      {/* <h1 className="aboutHeader">About <img className="golfIcon" src={golfIcon}/></h1> */}
+      <h1 className="aboutHeader">About</h1>
       <p>
         HandicApp is a cutting edge golf handicap tracker. With this application a golfer 
         is able to visualize what aspects of their golf game they should focus on to improve 
@@ -60,10 +61,14 @@ const AboutPage = () => (
         will give you a handicap with 8 or less rounds logged which will be the average of those
         rounds. With 9 - 20 rounds logged, the handicap is the average of the best 8 rounds.
       </p>
-      <p id="bottomParagraph">
+      <p>
         This app adjusts any round entered to the 18 hole equivalent and uses that to contribute
         to the handicap. If a round is logged with 1 hole played at 1 under par, that has the same
         contribution to handicap as an 18 hole round at 18 under par.
+      </p>
+      <p id="bottomParagraph">
+        Selecting the Edit page from the navigation bar when already on the Edit page will reverse
+        the order of the rounds from descending date to ascending date.
       </p>
     </div>
   </div>

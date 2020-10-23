@@ -51,7 +51,8 @@ const Breakdown = (mapStoreToProps) => {
 
   return(
     <div>
-      <h1 className="breakdownHeader">Breakdown <img className="golfIcon" src={golfIcon}/></h1>
+      {/* <h1 className="breakdownHeader">Breakdown <img className="golfIcon" src={golfIcon}/></h1> */}
+      <h1 className="breakdownHeader">Breakdown</h1>
         <div className="buttons">
           {graphInterval === 5 ?
             <Button variant="contained" id="goldButton">Recent 5</Button>

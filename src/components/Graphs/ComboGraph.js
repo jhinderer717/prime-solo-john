@@ -37,7 +37,6 @@ const ComboGraph = (props) => {
       return points;
    }
 
-   
 
    let roundPuttsTest = [];
    let roundApproachTest = [];
@@ -53,9 +52,6 @@ const ComboGraph = (props) => {
    const roundFairway = roundFairwayTest.reverse();
    const rightDate = dateSplit.reverse();
 
-   //console.log('roundPutt:', roundPutt);
-   //console.log('rounds', rounds);
-
    const roundScores = [];
    rounds.map(round => roundScores.push(round.score_to_par * (18 / round.number_holes)));
    const correctScores = roundScores.reverse();
@@ -67,15 +63,15 @@ const ComboGraph = (props) => {
    correctScores.map((score, i) => approachFraction.push(roundApproach[i] / score));
    correctScores.map((score, i) => fairwayFraction.push(roundFairway[i] / score));
 
-   
-   // const puttMin =  Math.min(...puttFraction);
-   // const approachMin =  Math.min(...approachFraction);
-   // const fairwayMin =  Math.min(...fairwayFraction);
-   // console.log('mins:', puttMin, approachMin, fairwayMin);
-
-   const puttFractionAvg = (puttFraction[0] + puttFraction[1] + puttFraction[2] + puttFraction[3]+ puttFraction[4]) / 5;
-   const approachFractionAvg = (approachFraction[0] + approachFraction[1] + approachFraction[2] + approachFraction[3]+ approachFraction[4]) / 5;
-   const fairwayFractionAvg = (fairwayFraction[0] + fairwayFraction[1] + fairwayFraction[2] + fairwayFraction[3]+ fairwayFraction[4]) / 5;
+   var puttFractionAvg = 0;
+   var approachFractionAvg = 0;
+   var fairwayFractionAvg = 0;
+   for(let i=0; i<puttFraction.length; i++){ puttFractionAvg += puttFraction[i]; }
+   for(let i=0; i<puttFraction.length; i++){ approachFractionAvg += approachFraction[i]; }
+   for(let i=0; i<fairwayFraction.length; i++){ fairwayFractionAvg += fairwayFraction[i]; }
+   puttFractionAvg = puttFractionAvg / puttFraction.length;
+   approachFractionAvg = approachFractionAvg / approachFraction.length;
+   fairwayFractionAvg = fairwayFractionAvg / fairwayFraction.length;
 
    var worstStat = '';
    var bestStat = '';
@@ -187,7 +183,7 @@ const ComboGraph = (props) => {
    //    console.log('mounted');          taking the graph functions themselves out
    // }, []); // warning told me to remove --   , []);   -- caused error
    return(
-      <div className="comboGraphDiv">
+      <div>
 
          {avg8 !== 'noScores' && 
             <p>Your handicap is {Math.round(avg8)}</p>}
@@ -196,42 +192,42 @@ const ComboGraph = (props) => {
 
          <hr/>
 
-
-         <Line id="lineGraph" data={scoreChartData} options={{
-            // maintainAspectRatio: false,
-            responsive: true,
-            title: {
-               display: true,
-               text: "Combo Graph"
-            },
-            tooltips: {
-               mode: 'index',
-            },
-            hover: {
-               mode: 'index'
-            },
-            scales: {
-               xAxes: [{
-                  scaleLabel: {
-                     //display: true,
-                     // labelString: 'Date'
-                  }
-               }],
-               yAxes: [{
-                  stacked: true,
-                  scaleLabel: {
-                     display: true,
-                     labelString: 'Handicap'
-                  },
-                  ticks: {
-                     suggestedMin: 0,
-                     //stepSize
-                  }
-               }]
-            }
-         }}
-         />
-
+         <div className="comboGraphDiv">
+            <Line data={scoreChartData} options={{
+               maintainAspectRatio: false,
+               responsive: true,
+               title: {
+                  display: true,
+                  text: "Top Points: Handicap"
+               },
+               tooltips: {
+                  mode: 'index',
+               },
+               hover: {
+                  mode: 'index'
+               },
+               scales: {
+                  xAxes: [{
+                     scaleLabel: {
+                        display: true,
+                        labelString: 'Date'
+                     }
+                  }],
+                  yAxes: [{
+                     stacked: true,
+                     scaleLabel: {
+                        display: true,
+                        labelString: 'Handicap'
+                     },
+                     ticks: {
+                        suggestedMin: 0,
+                        //stepSize
+                     }
+                  }]
+               }
+            }}
+            />
+         </div>
          <Paper variant="outlined">
             <div className="trends">
                <p><b>Trends:</b></p>

@@ -25,7 +25,8 @@ class Edit extends Component {
   render() {
     return (
       <div className="editDiv">
-        <h1 className="editHeader">Edit <img className="golfIcon" src={golfIcon}/></h1>
+        {/* <h1 className="editHeader">Edit <img className="golfIcon" src={golfIcon}/></h1> */}
+        <h1 className="editHeader">Edit</h1>
           {this.props.rounds.reverse().map(round => // reverse() because we want the most recent at the top
             <EditItem key={round.id}                // selecting edit when already on edit page reverses
               round={round}                         // the order of the rounds, a minor bug to fix later
