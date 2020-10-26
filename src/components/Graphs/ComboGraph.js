@@ -88,7 +88,7 @@ const ComboGraph = (props) => {
       }
    }else if(approachFractionAvg > puttFractionAvg && approachFractionAvg > fairwayFractionAvg){
       worstStat = 'approach';
-      if(puttFractionAvg > fairwayFractionAvg){
+      if(puttFractionAvg > fairwayFractionAvg){//testing
          bestStat = 'fairway';
       }else{
          bestStat = 'putt';
