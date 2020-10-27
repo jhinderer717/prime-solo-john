@@ -27,6 +27,17 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/golf', golfRouter);
 
+// Error handler middleware
+app.use((err, req, res, next) => {
+  message = process.env.PRODUCTION === 'true' ?
+    'something went wrong' :
+    err.toString();
+
+  console.error(err);
+
+  res.status(500).json({ message });
+});
+
 // Serve static files
 app.use(express.static('build'));
 
@@ -37,3 +48,6 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
 });
+
+
+module.exports = app;

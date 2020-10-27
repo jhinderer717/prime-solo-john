@@ -68,19 +68,19 @@ describe('Updating a users cohort', () => {
 //     });
 //   });
   
-  test(`should fail, if you're not logged in`, async() => {
-    let logoutRes = await agent.post('/api/user/logout');
-    expect(logoutRes.statusCode).toBe(200);
+//   test(`should fail, if you're not logged in`, async() => {
+//     let logoutRes = await agent.post('/api/user/logout');
+//     expect(logoutRes.statusCode).toBe(200);
 
-    // Attempt to update the user's cohort
-    let putResponse = await agent
-      .put(`/api/user/${user.id}`)
-      .send({
-        cohortId: 1
-      });
+//     // Attempt to update the user's cohort
+//     let putResponse = await agent
+//       .put(`/api/user/${user.id}`)
+//       .send({
+//         cohortId: 1
+//       });
 
-    expect(putResponse.statusCode).toBe(403);
-  });
+//     expect(putResponse.statusCode).toBe(403);
+//   });
   
 //   test(`should only allow instructors`, async() => { -- I don't have instructors in my DB table
 //     // Make our user a student
