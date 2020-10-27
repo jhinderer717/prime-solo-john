@@ -26,11 +26,17 @@ if (process.env.DATABASE_URL) {
     max: 10, // max number of clients in the pool
     idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
   };
-} else {
+}else if(process.env.TEST){
+  config = {
+    database: 'solo_testing'
+  };
+}
+ else {
   config = {
     host: 'localhost', // Server hosting the postgres database
     port: 5432, // env var: PGPORT
-    database: 'prime_solo_john', // CHANGE THIS LINE! env var: PGDATABASE, this is likely the one thing you need to change to get up and running
+    // database: 'prime_solo_john',
+    database: 'prime_solo_john',
     max: 10, // max number of clients in the pool
     idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
   };
