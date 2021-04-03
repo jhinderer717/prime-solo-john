@@ -87,7 +87,7 @@ const LifetimeComp = (mapStoreToProps) => {
       let rounds = mapStoreToProps.store.allRoundReducer;
       let roundScore = [];
       let roundDate =[];
-      rounds.map(round => roundScore.push(round.score_to_par));
+      rounds.map(round => roundScore.push(round.score_to_par * (18 / round.number_holes)));
       rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
 
       setScoreChartData({

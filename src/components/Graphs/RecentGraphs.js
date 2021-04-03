@@ -75,7 +75,7 @@ const RecentScoreComp = (mapStoreToProps) => {
 
 
   let roundScore = [];
-  rounds.map(round => roundScore.push(round.score_to_par));
+  rounds.map(round => roundScore.push(round.score_to_par * (18 / round.number_holes)));
   const roundScoreRight = roundScore.reverse(); // the database gives the most recent 5 in descending
                                                 // order, must flip to graph in ascending order
 

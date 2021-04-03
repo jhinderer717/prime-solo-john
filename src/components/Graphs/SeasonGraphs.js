@@ -87,7 +87,7 @@ const SeasonComp = (mapStoreToProps) => {
     let rounds = mapStoreToProps.store.seasonRoundReducer;
     let roundScore = [];
     let roundDate =[];
-    rounds.map(round => roundScore.push(round.score_to_par));
+    rounds.map(round => roundScore.push(round.score_to_par * (18 / round.number_holes)));
     rounds.map(round => roundDate.push(round.date.split('T', 1)[0]));
     const dateSplit = roundDate.map(round => round.split('-', 3)[1].concat('-', round.split('-', 3)[2]));
 

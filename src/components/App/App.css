@@ -10,6 +10,8 @@ body,
 body {
   font-family: 'optima', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
+  /* background-color: white;
+  background-size: cover; */
 }
 
 img {
