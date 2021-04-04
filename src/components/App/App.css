@@ -1,7 +1,7 @@
 html,
 body,
 #react-root {
-  height: 549px;
+  /* height: 549px; */
   /* background-image: url("../CO_golf.jpg"); */
   background-color: white;
   background-size: cover;
@@ -121,9 +121,10 @@ Form Treatment
 .loginPage{
   background-image: url("../CO_golf.jpg");
   /* margin-top: -30px; */
-  height: 104%;
+  /* height: 104%; */
   background-size: cover;
   margin: -5px;
+  height: 549px;
 }
 
 .appDiv{
