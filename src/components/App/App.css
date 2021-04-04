@@ -1,7 +1,7 @@
 html,
 body,
 #react-root {
-  /* height: 98%; */
+  height: 549px;
   /* background-image: url("../CO_golf.jpg"); */
   background-color: white;
   background-size: cover;
@@ -132,10 +132,12 @@ Form Treatment
 }
 
 #login{
+  color: white;
   text-shadow: 9px 10px 5px black;
 }
 
 #loginHeader{
+  color: white;
   text-shadow: 9px 10px 5px darkslategrey;
 }
 
