@@ -2,6 +2,10 @@ section{
    display: flex;
 }
 
+.comboRecent{
+   height: 250px;
+}
+
 .comboSeason{
    height: 250px;
    margin-bottom: 8px;

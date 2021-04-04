@@ -144,8 +144,9 @@ const RecentScoreComp = (mapStoreToProps) => {
    
   return(
     <div>
-      <Line data={comboChartData} options={{
-          //maintainAspectRatio: false,	// Don't maintain w/h ratio
+      <div className="comboRecent">
+        <Line data={comboChartData} options={{
+          maintainAspectRatio: false,	// Don't maintain w/h ratio
           responsive: true,
           title: {
             display: true,
@@ -175,8 +176,9 @@ const RecentScoreComp = (mapStoreToProps) => {
                 }
             }]
           }
-      }}
-      />
+        }}
+        />
+      </div>
       <Line data={scoreChartData} options={{
         responsive: true,
         scales: {
