@@ -68,7 +68,7 @@ const AboutPage = () => (
       </p>
       <p id="bottomParagraph">
         Selecting the Edit page from the navigation bar when already on the Edit page will reverse
-        the order of the rounds from descending date to ascending date.
+        the order of the rounds.
       </p>
     </div>
   </div>
