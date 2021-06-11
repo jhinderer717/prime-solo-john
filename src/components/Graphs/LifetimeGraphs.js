@@ -27,7 +27,7 @@ const LifetimeComp = (mapStoreToProps) => {
          const avgApproach = (round.approach_shots / round.number_holes);
          const avgFairway = (round.fairways_hit / round.possible_fairways);
     
-         const configPutts = (Math.pow((avgPutts - 1), 2) / 4)
+         const configPutts = (Math.pow((avgPutts - 1), 2) / 9)
          const configApproach = (avgApproach / 2);
          const configFairway = ((1.8 / (avgFairway + 1)) - 0.89);
    
